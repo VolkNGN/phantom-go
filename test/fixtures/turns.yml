@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  turn_number: 1
+  row: 1
+  column: 1
+  score: 1
+  game: one
+
+two:
+  turn_number: 1
+  row: 1
+  column: 1
+  score: 1
+  game: two
