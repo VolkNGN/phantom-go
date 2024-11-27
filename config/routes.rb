@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   devise_for :players
+
+  # Routes pour les profils de joueurs
+  resources :players, only: [:show]
+
+  # Autres routes
+  resources :games
+
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
