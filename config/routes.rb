@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "games/new"
   devise_for :players
 
   # Routes pour les profils de joueurs
