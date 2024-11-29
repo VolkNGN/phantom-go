@@ -11,9 +11,15 @@
   <div class="container">
     <header class="header">
       <div class="profile-icon">
-        <a href="votre_lien.html" class="profile-button">
-          <i class="fa-regular fa-user" style="color: #ffffff;"></i>
-        </a>
+        <% if player_signed_in? %>
+          <%= link_to profile_path, class: "profile-button" do %>
+            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+          <% end %>
+        <% else %>
+          <%= link_to new_player_session_path, class: "profile-button" do %>
+            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+          <% end %>
+        <% end %>
       </div>
     </header>
 
@@ -24,11 +30,11 @@
       <div class="game-board">
         <img src="board.png" alt="Plateau de jeu" class="board-image">
       </div>
-      <button class="auto-match-button">Auto-Match</button>
+        <%= button_to "Auto-Match", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
     </main>
 
     <footer class="footer">
-      <a href="#" class="how-to-play">Comment jouer ?</a>
+      <%= link_to "Comment jouer ?", how_to_play_path, class: "how-to-play" %>
     </footer>
   </div>
 </body>

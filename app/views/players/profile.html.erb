@@ -1,0 +1,7 @@
+<% if @player %>
+  <h1>Welcome, <%= @player.username %>!</h1>
+  <p><strong>Full Name:</strong> <%= @player.first_name %> <%= @player.last_name %></p>
+  <p><strong>Email:</strong> <%= @player.email %></p>
+<% else %>
+  <p>No player information available.</p>
+<% end %>
