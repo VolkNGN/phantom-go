@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # Autres routes
   resources :games
+  patch "games/:id/play", to: "games#play"
 
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

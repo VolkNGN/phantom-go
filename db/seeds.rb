@@ -37,3 +37,10 @@ users_data.each_with_index do |user, i|
 end
 
 puts "5 joueurs fictifs créés avec succès avec leurs photos de profil !"
+
+# Créer une game
+Game.create!(
+  game1 = Game.find_or_create_by!(black_player: players[0], white_player: players[1]) do |game|
+    game.status = "ongoing"
+  end
+)

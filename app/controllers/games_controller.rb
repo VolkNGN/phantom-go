@@ -10,4 +10,15 @@ class GamesController < ApplicationController
 
   def new
   end
+
+  def play
+    puts "//////////////////////////////////////////////////"
+    puts params
+    @game = Game.find(params[:id])
+    @game.turn = params[:color]
+    @game.turn = params[:column]
+    # @game.turn = params[:row]
+    @game.save
+    puts @game
+  end
 end

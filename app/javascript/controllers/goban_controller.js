@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log(this.colorValue)
+    // console.log(this.colorValue)
   }
 
   play(event) {
@@ -33,12 +33,15 @@ export default class extends Controller {
   intersection.appendChild(stone);
   intersection.dataset.status = "black"
 
-  // fetch(url)
-  // .then(response => response.json())
-  // .then((data) => {
-  //   console.log(data);
-  // });
-
+  fetch("1/play", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+    },
+    body: JSON.stringify({"color": this.colorValue, "column":intersection.dataset.column, "row":intersection.dataset.row})
+  })
+  .then(response => console.log(response))
 
  }
 }
