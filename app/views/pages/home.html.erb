@@ -18,14 +18,17 @@
     </header>
 
     <main class="main">
-      <h1 class="logo">
-        PHANTOM <span class="ghost-black">●</span> <span class="ghost-white">👻</span>
-      </h1>
-      <div class="game-board">
-        <img src="board.png" alt="Plateau de jeu" class="board-image">
+      <div class="logo">
+        <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1732802263/Logo_white_1_pf2tt7.png" alt="Phantom Go" class="logo-image">
       </div>
+
+      <div class="game-board">
+        <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/c_fill,w_200,h_100,g_auto/v1732802243/goboard_qppngf.png" alt="Plateau de jeu" class="board-image">
+      </div>
+      
       <%# <button class="auto-match-button">Auto-Match</button> %>
       <%= link_to 'Auto-Match', game_path(1), class: 'btn auto-match-button' %>
+
     </main>
 
     <footer class="footer">
