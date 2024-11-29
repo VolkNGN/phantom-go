@@ -25,7 +25,9 @@
       <div class="game-board">
         <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/c_fill,w_200,h_100,g_auto/v1732802243/goboard_qppngf.png" alt="Plateau de jeu" class="board-image">
       </div>
-      <%= link_to 'Auto-Match', new_game_path, class: 'auto-match-button' %>
+      
+      <%# <button class="auto-match-button">Auto-Match</button> %>
+      <%= link_to 'Auto-Match', game_path(1), class: 'btn auto-match-button' %>
 
     </main>
 
