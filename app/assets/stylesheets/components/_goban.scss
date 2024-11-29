@@ -1,0 +1,84 @@
+#goban {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 380px;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: 372px;
+  background-image: url("goban-texture.png")
+
+}
+
+.intersection {
+  width: 62px;
+  height: 62px;
+  position: relative;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: white;
+    opacity: 0.4;
+    cursor: pointer;
+  }
+}
+
+.horizontal {
+  background-color: black;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+}
+
+.vertical {
+  background-color: black;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+}
+
+.intersection:nth-child(6n+1) {
+  .horizontal {
+    width: 50%;
+    left: 50%;
+  }
+}
+
+.intersection:nth-child(6n) {
+  .horizontal {
+  width: 50%;
+  }
+}
+
+.intersection:nth-child(-n+6) {
+  .vertical {
+    height: 50%;
+    top: 50%;
+  }
+}
+
+.intersection:nth-child(n+31) {
+  .vertical {
+    height: 52%;
+  }
+}
+
+.stone {
+  box-sizing: border-box;
+  position: absolute;
+  width: 60px; /* taille de la pierre */
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%; /* pour donner l'apparence d'une pierre ronde */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &.black{
+    background-color: black;
+  }
+  &.white{
+    background-color: white;
+  }
+}

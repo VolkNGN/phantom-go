@@ -24,7 +24,8 @@
       <div class="game-board">
         <img src="board.png" alt="Plateau de jeu" class="board-image">
       </div>
-      <button class="auto-match-button">Auto-Match</button>
+      <%# <button class="auto-match-button">Auto-Match</button> %>
+      <%= link_to 'Auto-Match', game_path(1), class: 'btn auto-match-button' %>
     </main>
 
     <footer class="footer">
