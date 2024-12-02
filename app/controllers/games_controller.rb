@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_player! # S'assurer que le joueur est connecté
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: %i[show edit update destroy]
 
   # Lister toutes les parties
   def index
@@ -77,6 +77,7 @@ class GamesController < ApplicationController
   # Filtrer les paramètres pour jouer un tour
   def turn_params
     params.require(:turn).permit(:row, :column, :score)
+  end
 
   def show
     @game = Game.find(params[:id])
@@ -87,7 +88,6 @@ class GamesController < ApplicationController
     end
   end
 
-  def new
-
+  def new # rubocop:disable Lint/DuplicateMethods
   end
 end
