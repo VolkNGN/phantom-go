@@ -77,6 +77,7 @@ class GamesController < ApplicationController
   # Filtrer les paramètres pour jouer un tour
   def turn_params
     params.require(:turn).permit(:row, :column, :score)
+  end
 
   def show
     @game = Game.find(params[:id])
@@ -85,8 +86,5 @@ class GamesController < ApplicationController
     else
       @color = "white"
     end
-    
-  def new
-
   end
 end
