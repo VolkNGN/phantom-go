@@ -1,6 +1,6 @@
 require 'open-uri'
 
-# URL d'exemple pour les images de profil Cloudinary
+# URLs des images de profil
 profile_pictures = [
   "https://res.cloudinary.com/devmujjf6/image/upload/v1732706519/1998-mulan-01_obl5u9.jpg",
   "https://res.cloudinary.com/devmujjf6/image/upload/v1732706725/latest_rystpk.png",
@@ -9,31 +9,66 @@ profile_pictures = [
   "https://res.cloudinary.com/devmujjf6/image/upload/v1732706788/latest_w2ngly.png"
 ]
 
-# Données fictives pour les utilisateurs
-users_data = [
-  { first_name: "Mulan", last_name: "Fa", email: "Mulan.Fa@example.com" },
-  { first_name: "Elsa", last_name: "Arendelle", email: "Elsa.Arendelle@example.com" },
-  { first_name: "Ariel", last_name: "Triton", email: "Ariel.Triton@example.com" },
-  { first_name: "Tarzan", last_name: "Greystoke", email: "Tarzan.Greystoke@example.com" },
-  { first_name: "Miguel", last_name: "Rivera", email: "Miguel.Rivera@example.com" }
+# Seed des joueurs (Players)
+players = [
+  { username: "Mulan", email: "mulan@example.com", password: "password", first_name: "Mulan", last_name: "Fa" },
+  { username: "Elsa", email: "elsa@example.com", password: "password", first_name: "Elsa", last_name: "Arendelle" },
+  { username: "Ariel", email: "ariel@example.com", password: "password", first_name: "Ariel", last_name: "Triton" },
+  { username: "Tarzan", email: "tarzan@example.com", password: "password", first_name: "Tarzan", last_name: "Greystoke" },
+  { username: "Miguel", email: "miguel@example.com", password: "password", first_name: "Miguel", last_name: "Rivera" }
 ]
 
-# Création des joueurs
-users_data.each_with_index do |user, i|
-  player = Player.create!(
-    first_name: user[:first_name],
-    last_name: user[:last_name],
-    email: user[:email],
-    password: "123456",
-    password_confirmation: "123456"
-  )
+puts "Creating players..."
+players.each_with_index do |player_data, index|
+  player = Player.find_or_create_by!(email: player_data[:email]) do |p|
+    p.username = player_data[:username]
+    p.first_name = player_data[:first_name]
+    p.last_name = player_data[:last_name]
+    p.password = player_data[:password]
+  end
 
-  # Associer une photo de profil via Active Storage
-  player.avatar.attach(
-    io: URI.open(profile_pictures[i]),
-    filename: "profile_picture_#{i + 1}.jpg",
-    content_type: "image/jpeg"
-  )
+  # Associer une image de profil via Active Storage
+  unless player.avatar.attached?
+    player.avatar.attach(
+      io: URI.open(profile_pictures[index]),
+      filename: "#{player_data[:username].downcase}_profile.jpg",
+      content_type: "image/jpeg"
+    )
+  end
+
+  puts "Player '#{player.username}' created with profile picture."
+end
+
+# Seed des badges
+badges = [
+  { name: "Beginner", description: "Completed the first game." },
+  { name: "Strategist", description: "Won 10 games." },
+  { name: "Master", description: "Won 50 games." }
+]
+
+puts "Creating badges..."
+badges.each do |badge_data|
+  badge = Badge.find_or_create_by!(name: badge_data[:name]) do |b|
+    b.description = badge_data[:description]
+  end
+  puts "Badge '#{badge.name}' created."
+end
+
+# Seed des achievements
+puts "Creating achievements..."
+Player.all.each_with_index do |player, index|
+  badge = Badge.find_by(name: badges[index % badges.length][:name])
+  Achievement.find_or_create_by!(player: player, badge: badge)
+  puts "Achievement for player '#{player.username}' with badge '#{badge.name}' created."
+end
+
+# Seed des disponibilités (Availabilities)
+puts "Creating availabilities..."
+Player.all.each do |player|
+  Availability.find_or_create_by!(player: player) do |availability|
+    availability.status = "available"
+  end
+  puts "Availability for player '#{player.username}' created."
 end
 
 puts "5 joueurs fictifs créés avec succès avec leurs photos de profil !"
@@ -44,3 +79,36 @@ Game.create!(
     game.status = "ongoing"
   end
 )
+=======
+# Seed des parties (Games)
+puts "Creating games..."
+players = Player.all
+game1 = Game.find_or_create_by!(black_player: players[0], white_player: players[1]) do |game|
+  game.status = "ongoing"
+end
+game2 = Game.find_or_create_by!(black_player: players[2], white_player: players[3]) do |game|
+  game.status = "finished"
+  game.winner_id = players[2].id
+end
+puts "Game 1 created with #{game1.black_player.username} vs #{game1.white_player.username}."
+puts "Game 2 created with #{game2.black_player.username} vs #{game2.white_player.username}. Winner: #{game2.white_player.username}."
+
+# Seed des tours (Turns)
+puts "Creating turns..."
+Turn.create!(
+  turn_number: 1,
+  game: game1,
+  row: 3,
+  column: 4,
+  score: 0
+)
+Turn.create!(
+  turn_number: 2,
+  game: game1,
+  row: 2,
+  column: 5,
+  score: 0
+)
+puts "Turns created for Game 1."
+
+puts "Seeding complete!"
