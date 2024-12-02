@@ -10,6 +10,7 @@ body {
   font-family: 'Arial', sans-serif;
   background: linear-gradient(to bottom, #8300FA, #331581); /* Couleur violette */
   color: white;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,8 +80,7 @@ img.board-image {
 
 /* Footer */
 .footer {
-
-  height: 130px;
+  padding: 30px;
 }
 
 .how-to-play {

@@ -9,9 +9,21 @@
 </head>
 <body>
   <div class="container">
-    <header class="header"></header>
+    <header class="header">
+      <div class="profile-icon">
+        <% if player_signed_in? %>
+          <%= link_to profile_path, class: "profile-button" do %>
+            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+          <% end %>
+        <% else %>
+          <%= link_to new_player_session_path, class: "profile-button" do %>
+            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </header>
 
-    <main class="main-container">
+    <main class="main">
       <div class="logo">
         <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1732802263/Logo_white_1_pf2tt7.png" alt="Phantom Go" class="logo-image">
       </div>
@@ -21,54 +33,11 @@
       </div>
         <%= button_to "Auto-Match", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
 
-      <div class="rules-header">
-        <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733135404/Component_10_glwdxc.png" alt="">
-      </div>
-      <i class="fa-solid fa-chevron-down"></i>
-     </main>
+    </main>
 
-     <!-- Section règles -->
-     <div class="rules-container">
-      <section class="rules">
-
-      <div class="rules-content">
-        <div class="rule">
-          <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733134430/Component_6_db9j60.png" alt="Règle 1">
-            <p>Ici, le jeu se joue sur un plateau de 6x6 intersections.
-            Un joueur utilise des pierres noires, l'autre des pierres blanches. Noir commence toujours !
-            Les joueurs placent une pierre à tour de rôle sur les intersections vides du plateau.
-            </p>
-        </div>
-        <div class="rule">
-          <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733134613/Component_7_fhsker.png" alt="Règle 2">
-            <p>Une pierre ou un groupe de pierres a des "libertés", c'est-à-dire des intersections vides adjacentes.
-            Si toutes les libertés sont occupées par l'adversaire, les pierres sont capturées et retirées du plateau !
-            </p>
-        </div>
-        <div class="rule">
-          <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733134625/Component_8_uxott8.png" alt="Règle 3">
-          <p>
-            La partie se termine lorsque les deux joueurs passent leur tour consécutivement.
-            Chaque joueur compte les intersections vides qu'il contrôle et les pierres capturées. Le joueur avec le plus de points (territoire + captures) gagne.
-          </p>
-        </div>
-        <div class="rule">
-          <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733133955/Vector34png_d5ojck.png" alt="">
-          <p>
-            Au go fantôme, comme dans une bataille navale, les pierres de l'adversaire sont invisibles sur le plateau. Cela signifie que chaque joueur ne connaît que ses propres coups et doit déduire l'emplacement des pierres adverses !
-          </p>
-        </div>
-      </div>
-      </div>
-
-     </div>
-
-      <div class= "footer">
-       <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733134812/Component_9_ll2gan.png" alt="">
-       <%= button_to "Jouer", how_to_play_path, method: :get, class: "play-button" %>
-      </div>
-
-
+    <footer class="footer">
+      <%= link_to "Comment jouer ?", how_to_play_path, class: "how-to-play" %>
+    </footer>
   </div>
 </body>
 </html>

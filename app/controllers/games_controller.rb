@@ -69,21 +69,19 @@ class GamesController < ApplicationController
 
   # Méthode play permet de jouer un tour en récupérant les infos du turn(column, row, color)
   def play
-    puts
-    puts
-    puts
-    p params[:color].inspect
-    p last_stone_color(@last_turn).inspect
-    p @last_turn
     return if last_stone_color(@last_turn) == params[:color]
 
-    puts "coucou"
     @turn = Turn.new
     @turn.column = params[:column]
     @turn.row = params[:row]
     @turn.game = @game
     @turn.turn_number = @game.turns.count + 1
     @turn.save
+    # recupérer la game et le joueur currently waiting
+    channel_adress = "#{game.to_gid_param}:#{player.to_gid_param}"
+    puts channel_adress
+    GameChannel.broadcast_to(channel_adress, "C'est ton tour !")
+    # le serveur repond au black player
     # puts @turn.game
   end
 
@@ -92,6 +90,8 @@ class GamesController < ApplicationController
   # Charger une partie spécifique
   def set_game
     @game = Game.find_by(id: params[:id])
+    @currently_playing = @game.currently_playing
+    @currently_waiting = @game.currently_waiting
   end
 
   # Filtrer les paramètres pour la création/mise à jour d'une partie

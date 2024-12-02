@@ -1,3 +1,9 @@
+<div
+  id="game"
+  data-controller="game"
+
+>
+
 <%= current_player.email%>
 <div
   id="goban"
@@ -11,4 +17,5 @@
 <%=render "line", row: "3", turns: @turns, color: @color %>
 <%=render "line", row: "2", turns: @turns, color: @color %>
 <%=render "line", row: "1", turns: @turns, color: @color %>
+</div>
 </div>
