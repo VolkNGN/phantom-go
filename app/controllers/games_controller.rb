@@ -1,11 +1,11 @@
 class GamesController < ApplicationController
   before_action :authenticate_player! # S'assurer que le joueur est connecté
-  before_action :set_game, only: %i[show edit update destroy]
+  before_action :set_game, only: %i[show edit update destroy play]
+  before_action :set_last_turn, only: %i[show play]
 
   # Lister toutes les parties
   def index
     @games = Game.all
-    render json: @games
   end
 
   # Formulaire pour créer une nouvelle partie
@@ -47,19 +47,44 @@ class GamesController < ApplicationController
     end
   end
 
-  # Jouer un tour dans une partie
-  def play_turn
-    @game = Game.find(params[:id])
-
-    turn = Turn.new(turn_params)
-    turn.game = @game
-    turn.turn_number = @game.turns.count + 1
-
-    if turn.save
-      render json: { message: "Turn played successfully.", turn: turn }, status: :ok
+  # Méthode show affiche la couleur du current_player
+  def show
+    if current_player == @game.black_player
+      @color = "black"
     else
-      render json: { message: turn.errors.full_messages.join(", ") }, status: :unprocessable_entity
+      @color = "white"
     end
+
+    @turns = @game.turns
+    # puts @game
+  end
+
+  # Méthode stone_color affiche la couleur en fonction du tour
+  def last_stone_color(turn)
+    return "black" if turn&.turn_number&.odd?
+
+    return "white"
+  end
+  helper_method :last_stone_color
+
+  # Méthode play permet de jouer un tour en récupérant les infos du turn(column, row, color)
+  def play
+    puts
+    puts
+    puts
+    p params[:color].inspect
+    p last_stone_color(@last_turn).inspect
+    p @last_turn
+    return if last_stone_color(@last_turn) == params[:color]
+
+    puts "coucou"
+    @turn = Turn.new
+    @turn.column = params[:column]
+    @turn.row = params[:row]
+    @turn.game = @game
+    @turn.turn_number = @game.turns.count + 1
+    @turn.save
+    # puts @turn.game
   end
 
   private
@@ -79,15 +104,8 @@ class GamesController < ApplicationController
     params.require(:turn).permit(:row, :column, :score)
   end
 
-  def show
-    @game = Game.find(params[:id])
-    if current_player == @game.black_player
-      @color = "black"
-    else
-      @color = "white"
-    end
-  end
-
-  def new # rubocop:disable Lint/DuplicateMethods
+  # Méthode set_last_turn permet de récupérer le dernier tour
+  def set_last_turn
+    @last_turn = @game.turns.last
   end
 end
