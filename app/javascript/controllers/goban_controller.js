@@ -35,7 +35,7 @@ export default class extends Controller {
   intersection.dataset.status = this.colorValue;
 
   // Le fetch envoie les données au serveur
-  fetch("1/play", {
+  fetch(`${this.gameidValue}/play`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

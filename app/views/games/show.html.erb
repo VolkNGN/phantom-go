@@ -1,5 +1,10 @@
 <%= current_player.email%>
-<div id="goban" data-controller="goban" data-goban-last-color-value="<%=stone_color(@last_turn)%>" data-goban-gameid-value="<%=@game.id%>" data-goban-color-value="<%=@color%>">
+<div
+  id="goban"
+  data-controller="goban"
+  data-goban-last-color-value="<%=last_stone_color(@last_turn)%>"
+  data-goban-gameid-value="<%=@game.id%>"
+  data-goban-color-value="<%=@color%>">
 <%=render "line", row: "6", turns: @turns, color: @color %>
 <%=render "line", row: "5", turns: @turns, color: @color %>
 <%=render "line", row: "4", turns: @turns, color: @color %>
