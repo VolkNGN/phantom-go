@@ -6,7 +6,8 @@ export default class extends Controller {
 
   static values = {
     gameid: Number,
-    color: String
+    color: String,
+    lastColor: String
   }
 
   connect() {
@@ -21,7 +22,7 @@ export default class extends Controller {
     // if (intersection.querySelector('.stone')) {
     //   return;
     // }
-    if (intersection.dataset.status !== "empty") {
+    if (intersection.dataset.status !== "empty" || this.colorValue === this.lastColorValue) {
       return;
     }
 
@@ -31,8 +32,9 @@ export default class extends Controller {
 
   // Placer la pierre dans l'intersection
   intersection.appendChild(stone);
-  intersection.dataset.status = "black"
+  intersection.dataset.status = this.colorValue;
 
+  // Le fetch envoie les données au serveur
   fetch("1/play", {
     method: "PATCH",
     headers: {
