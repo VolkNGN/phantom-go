@@ -2,7 +2,7 @@
     <div class="horizontal"></div>
     <div class="vertical"></div>
     <% turn = turns.find_by(column: column, row: row)%>
-    <%if turn && stone_color(turn) == color%>
-    <div class="stone <%=stone_color(turn)%>"></div>
+    <%if turn && last_stone_color(turn) == color%>
+    <div class="stone <%=last_stone_color(turn)%>"></div>
     <%end%>
   </div>

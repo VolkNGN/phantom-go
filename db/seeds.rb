@@ -19,7 +19,7 @@ players = [
 ]
 
 puts "Creating players..."
-players.each_with_index do |player_data, index|
+players = players.each_with_index.map do |player_data, index|
   player = Player.find_or_create_by!(email: player_data[:email]) do |p|
     p.username = player_data[:username]
     p.first_name = player_data[:first_name]
@@ -37,6 +37,7 @@ players.each_with_index do |player_data, index|
   end
 
   puts "Player '#{player.username}' created with profile picture."
+  player
 end
 
 # Seed des badges
@@ -73,16 +74,8 @@ end
 
 puts "5 joueurs fictifs créés avec succès avec leurs photos de profil !"
 
-# Créer une game
-Game.create!(
-  game1 = Game.find_or_create_by!(black_player: players[0], white_player: players[1]) do |game|
-    game.status = "ongoing"
-  end
-)
-=======
 # Seed des parties (Games)
 puts "Creating games..."
-players = Player.all
 game1 = Game.find_or_create_by!(black_player: players[0], white_player: players[1]) do |game|
   game.status = "ongoing"
 end
@@ -92,23 +85,5 @@ game2 = Game.find_or_create_by!(black_player: players[2], white_player: players[
 end
 puts "Game 1 created with #{game1.black_player.username} vs #{game1.white_player.username}."
 puts "Game 2 created with #{game2.black_player.username} vs #{game2.white_player.username}. Winner: #{game2.white_player.username}."
-
-# Seed des tours (Turns)
-puts "Creating turns..."
-Turn.create!(
-  turn_number: 1,
-  game: game1,
-  row: 3,
-  column: 4,
-  score: 0
-)
-Turn.create!(
-  turn_number: 2,
-  game: game1,
-  row: 2,
-  column: 5,
-  score: 0
-)
-puts "Turns created for Game 1."
 
 puts "Seeding complete!"
