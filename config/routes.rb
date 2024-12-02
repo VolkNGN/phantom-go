@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   get "games/new"
   devise_for :players
 
+  # Routes pour les profils de joueurs
+  resources :players, only: [:show]
+
+  # Autres routes
+  resources :games
+  patch "games/:id/play", to: "games#play"
 
   root to: "pages#home"
 
