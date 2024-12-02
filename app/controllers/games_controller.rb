@@ -8,10 +8,6 @@ class GamesController < ApplicationController
     render json: @games
   end
 
-  # Afficher les détails d'une partie spécifique
-  def show
-  end
-
   # Formulaire pour créer une nouvelle partie
   def new
     @game = Game.find(params[:id]) # Récupérer la partie en fonction de l'URL
@@ -81,5 +77,16 @@ class GamesController < ApplicationController
   # Filtrer les paramètres pour jouer un tour
   def turn_params
     params.require(:turn).permit(:row, :column, :score)
+
+  def show
+    @game = Game.find(params[:id])
+    if current_player == @game.black_player
+      @color = "black"
+    else
+      @color = "white"
+    end
+    
+  def new
+
   end
 end
