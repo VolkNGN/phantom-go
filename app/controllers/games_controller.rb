@@ -6,6 +6,7 @@ class GamesController < ApplicationController
     else
       @color = "white"
     end
+    puts @game
   end
 
   def new
@@ -13,12 +14,12 @@ class GamesController < ApplicationController
 
   def play
     puts "//////////////////////////////////////////////////"
-    puts params
     @game = Game.find(params[:id])
-    @game.turn = params[:color]
-    @game.turn = params[:column]
-    # @game.turn = params[:row]
-    @game.save
-    puts @game
+    @turn = Turn.new
+    @turn.column = params[:column]
+    @turn.row = params[:row]
+    @turn.game = @game
+    @turn.save
+    puts @turn.game
   end
 end
