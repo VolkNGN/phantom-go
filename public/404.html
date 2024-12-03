@@ -4,16 +4,15 @@
   <title>Phantom Go - 404 Not Found</title>
   <style>
     body {
-      background-color: #8b00ff;
+      background: var(--background-color, linear-gradient(190deg, rgba(131, 0, 250, 1) 0%, rgba(51, 21, 129, 1) 100%));
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      height: 105vh;
+      margin: 100;
       font-family: 'Montserrat', sans-serif;
       overflow: hidden;
     }
-
 
     .container {
       text-align: center;
@@ -21,19 +20,20 @@
       position: relative;
       width: 100%;
       height: 100%;
-    }
-
-    .texte {
-      align-content: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
     .ghost {
-      width: 80px;
-      height: 80px;
-      background-image: url('https://res-console.cloudinary.com/dreiyfvcb/thumbnails/v1/image/upload/v1733215355/V2hpdGVfcHpsdTBw/drilldown');
+      width: 200px;
+      height:200px;
+      background-image: url("https://res.cloudinary.com/dreiyfvcb/image/upload/v1733215355/White_pzlu0p.svg");
       background-size: cover;
       position: absolute;
       animation: float 1s ease-in-out infinite;
+      opacity: 0.3;
     }
 
     @keyframes float {
@@ -47,26 +47,31 @@
         transform: translateY(0);
       }
     }
+
+    .large-text {
+      font-size: 2.5em; /* Adjust the size as needed */
+    }
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="texte">
-      <h1>Oops! On dirait que vous vous etes trop aventures dans la Go Phantom Zone </h1>
-      <p>La page que vous cherchez n'existe pas.</p>
-    </div>
 
-    <script>
-      // Generate and position 15 ghosts
-      for (let i = 0; i < 15; i++) {
-        const ghost = document.createElement('div');
-        ghost.classList.add('ghost');
-        ghost.style.left = `${Math.floor(Math.random() * 100)}%`;
-        ghost.style.top = `${Math.floor(Math.random() * 100)}%`;
-        ghost.style.animationDelay = `${Math.random() * 3}s`;
-        document.querySelector('.container').appendChild(ghost);
-      }
-    </script>
+  <div class="container" style="color: var(--color-100, #ffffff);">
+    <h1 class="large-text">Oops!
+      <br />
+       On dirait que vous vous etes perdus dans
+       <br />
+       la Phantom Zone</h1>
+    <h2 class="large-text">La page que vous cherchez n'existe pas.</h2>
   </div>
-</body>
+
+  <script>
+    // Generate and position 15 ghosts
+    for (let i = 0; i < 20; i++) {
+      const ghost = document.createElement('div');
+      ghost.classList.add('ghost');
+      ghost.style.left = `${Math.floor(Math.random() * 90)}%`;
+      ghost.style.top = `${Math.floor(Math.random() * 90)}%`;
+      ghost.style.animationDelay = `${Math.random() * 3}s`;
+      document.querySelector('.container').appendChild(ghost);
+    }
+  </script>
 </html>
