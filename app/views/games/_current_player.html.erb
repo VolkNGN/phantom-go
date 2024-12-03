@@ -1,0 +1,26 @@
+<div class="player-row">
+  <!-- Section regroupée pour l'Avatar et le Username -->
+  <div class="player-info">
+    <div class="player-details">
+      <!-- Avatar -->
+      <div class="avatar-container">
+        <%= image_tag current_player.avatar, class: "avatar" if current_player.avatar.attached? %>
+      </div>
+
+      <!-- Username -->
+      <div class="username-container">
+        <h2 class="username"><%= current_player.username %></h2>
+      </div>
+    </div>
+
+    <!-- Captures -->
+    <div class="captures-container">
+      <p class="captures">0 pierre(s) capturée(s)</p>
+    </div>
+  </div>
+
+  <!-- Timer -->
+  <div class="timer-info">
+    <p class="timer" id="current-timer">02:58</p>
+  </div>
+</div>

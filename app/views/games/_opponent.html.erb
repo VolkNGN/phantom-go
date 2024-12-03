@@ -1,0 +1,29 @@
+<% opponent = current_player == @game.black_player ? @game.white_player : @game.black_player %>
+
+<div class="player-row opponent-row">
+  <!-- Timer -->
+  <div class="timer-info">
+    <p class="timer" id="opponent-timer">03:00</p>
+  </div>
+
+  <!-- Section regroupée pour l'Avatar et le Username -->
+  <div class="player-info">
+    <div class="player-details">
+      <!-- Username -->
+      <div class="username-container">
+        <h2 class="username"><%= opponent.username %></h2>
+      </div>
+
+      <!-- Avatar -->
+      <div class="avatar-container">
+        <%= image_tag opponent.avatar, class: "avatar" if opponent.avatar.attached? %>
+      </div>
+    </div>
+
+    <!-- Captures -->
+    <div class="captures-container">
+      <p class="captures">0 pierre(s) capturée(s)</p>
+    </div>
+  </div>
+</div>
+
