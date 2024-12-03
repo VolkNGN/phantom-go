@@ -1,43 +1,88 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=412, initial-scale=1.0">
-  <title>Phantom Go</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
-</head>
-<body>
-  <div class="container">
-    <header class="header">
-      <div class="profile-icon">
-        <% if player_signed_in? %>
-          <%= link_to profile_path, class: "profile-button" do %>
-            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
-          <% end %>
-        <% else %>
-          <%= link_to new_player_session_path, class: "profile-button" do %>
-            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </header>
+<div class="home">
+  <div class="rectangle-16"></div>
+  <div class="rectangle-18"></div>
+  <div class="rectangle-17"></div>
+  <img class="component-7" src="component-70.svg" />
+  <img class="component-6" src="component-60.svg" />
 
-    <main class="main">
-      <div class="logo">
-        <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1732802263/Logo_white_1_pf2tt7.png" alt="Phantom Go" class="logo-image">
-      </div>
-
-      <div class="game-board">
-        <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/c_fill,w_200,h_100,g_auto/v1732802243/goboard_qppngf.png" alt="Plateau de jeu" class="board-image">
-      </div>
-        <%= button_to "Auto-Match", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
-
-    </main>
-
-    <footer class="footer">
-      <%= link_to "Comment jouer ?", how_to_play_path, class: "how-to-play" %>
-    </footer>
+  <div class="logo-white-1">
+    <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1732802263/Logo_white_1_pf2tt7.png" alt="Phantom Go" class="logo-image" style="width: 271px;" />
   </div>
-</body>
-</html>
+
+  <div class="buttons">
+    <%= button_to "Auto-Match", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
+  </div>
+
+  <div class="game-board">
+    <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/c_fill,w_200,h_100,g_auto/v1732802243/goboard_qppngf.png" alt="Go board" class="board" style="width: 340px; height: 200px; margin-top: 105px;" />
+  </div>
+
+  <div class="regle1" >
+    Ici, le jeu se joue sur un plateau de 6x6 intersections.
+      <br />
+      <br />
+    Un joueur utilise des pierres noires, l&#039;autre des pierres blanches.Noir commence toujours !
+      <br />
+      <br />
+    Les joueurs placent une pierre à tour de rôle sur les intersections vides du plateau.
+  </div>
+
+  <div class="regle2" >
+    La partie se termine lorsque les deux joueurs passent leur tour
+    consécutivement.
+      <br />
+      <br />
+    Chaque joueur compte les intersections vides qu&#039;il contrôle et les
+    pierres capturées. Le joueur avec le plus de points (territoire + captures)
+    gagne.
+  </div>
+
+  <div class="regle3">
+    Une pierre ou un groupe de pierres a des &quot;libertés&quot;,
+    c&#039;est-à-dire des intersections vides adjacentes.
+      <br />
+      <br />
+    Si toutes les libertés sont occupées par l&#039;adversaire, les pierres sont
+    capturées et retirées du plateau !
+  </div>
+
+  <img class="component-5" src="component-50.svg" />
+
+  <div class="regle4">
+    Au go fantôme, comme dans une bataille navale, les pierres de
+    l&#039;adversaire sont invisibles sur le plateau. Cela signifie que chaque
+    joueur ne connaît que ses propres coups et doit déduire l&#039;emplacement
+    des pierres adverses !
+  </div>
+
+  <img class="polygon-1" src="polygon-10.svg" />
+  <img class="component-8" src="component-80.svg" />
+
+  <div class="buttons2">
+    <div class="button">Jouer</div>
+  </div>
+
+  <div class="component-10">
+    <div class="rectangle-15"></div>
+    <img class="white" src="white0.svg" />
+    <div class="besoin-d-un-rappel-des-r-gles">
+      Besoin d’un rappel des règles ?
+    </div>
+  </div>
+
+  <div class="component-9">
+    <div class="rectangle-40"></div>
+    <div class="ne-t-inqui-te-pas-je-serai-l-pour-te-donner-des-indications-lorsque-des-v-nements-sp-ciaux-arriveront-comme-les-coups-impossibles-et-la-capture-de-pierre" >
+      Ne t’inquiète pas, je serai là pour te donner des indications lorsque des
+      évènements spéciaux arriveront ! Comme les coups impossibles et la capture
+      de pierre !
+    </div>
+    <img class="white2" src="white1.svg" />
+  </div>
+
+  <div class="component-11">
+    <div class="ellipse-11"></div>
+    <img class="users-02" src="users-020.svg" />
+  </div>
+
+</div>
