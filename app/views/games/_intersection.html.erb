@@ -1,4 +1,4 @@
-<div class="intersection" data-goban-target="intersection" data-action="click->goban#play" data-column="<%=column%>" data-row="<%=row%>" data-status="empty">
+<div class="intersection" data-goban-target="intersection" data-action="click->goban#play" data-column="<%=column%>" data-row="<%=row%>">
     <div class="horizontal"></div>
     <div class="vertical"></div>
     <% turn = turns.find_by(column: column, row: row)%>

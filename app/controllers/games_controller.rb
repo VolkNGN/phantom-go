@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
   before_action :authenticate_player! # S'assurer que le joueur est connecté
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :play]
+  before_action :set_game, only: %i[show edit update destroy play pass give_up]
   before_action :set_last_turn, only: %i[show play]
+  before_action :set_channel, only: %i[play pass]
 
   # Lister toutes les parties
   def index
@@ -54,8 +55,12 @@ class GamesController < ApplicationController
     else
       @color = "white"
     end
-
     @turns = @game.turns
+    if current_player == @currently_playing
+      @message = "A vous de jouer"
+    else
+      @message = "C'est à votre adversaire de jouer"
+    end
     # puts @game
   end
 
@@ -69,21 +74,49 @@ class GamesController < ApplicationController
 
   # Méthode play permet de jouer un tour en récupérant les infos du turn(column, row, color)
   def play
-    puts
-    puts
-    puts
-    p params[:color].inspect
-    p last_stone_color(@last_turn).inspect
-    p @last_turn
     return if last_stone_color(@last_turn) == params[:color]
-    puts "coucou"
-    @turn = Turn.new
-    @turn.column = params[:column]
-    @turn.row = params[:row]
-    @turn.game = @game
-    @turn.turn_number = @game.turns.count + 1
-    @turn.save
+
+    if @game.turns.any? && @game.turns.find_by(column: params[:column], row: params[:row])
+      stream_message_to_currently_playing("Coup impossible")
+      return head :unprocessable_entity
+    else
+      @turn = Turn.new
+      @turn.column = params[:column]
+      @turn.row = params[:row]
+      @turn.game = @game
+      @turn.turn_number = @game.turns.count + 1
+      @turn.save
+      stream_message_to_currently_playing("A votre adversaire de jouer")
+      # sleep 0.5
+      stream_message_to_currently_waiting("A vous de jouer")
+      # recupérer la game et le joueur currently waiting
+      # render json: { message: "Pierre superbement posée !", turn: @turn }, status: :created
+    end
+    head :ok
+    # le serveur repond au black player
+    # if @turn.save
+    # else
+    #   render json: { message: @turn.errors.full_messages.join(", ") }, status: :unprocessable_entity
+    # end
     # puts @turn.game
+    # render turbo_stream: turbo_stream.update(
+    #   :referee_disclaimer,
+    #   partial: "games/referee_disclaimer",
+    #   locals: { text: text }
+    # )
+  end
+
+  def pass
+    # puts "-------------------------"
+    # puts "pass"
+    # Il faut regarder si le tour d'avant est un pass alors c'est game over
+    @game.turns.create(turn_number: @game.turns.count + 1)
+    redirect_to game_path(@game)
+  end
+
+  def give_up
+    @game.update(winner_id: @currently_waiting.id, status: "finished")
+    redirect_to game_path(@game), notice: "#{@currently_waiting} a remporté la partie !"
   end
 
   private
@@ -91,6 +124,8 @@ class GamesController < ApplicationController
   # Charger une partie spécifique
   def set_game
     @game = Game.find_by(id: params[:id])
+    @currently_playing = @game.currently_playing
+    @currently_waiting = @game.currently_waiting
   end
 
   # Filtrer les paramètres pour la création/mise à jour d'une partie
@@ -106,5 +141,32 @@ class GamesController < ApplicationController
   # Méthode set_last_turn permet de récupérer le dernier tour
   def set_last_turn
     @last_turn = @game.turns.last
+  end
+
+  def set_channel
+    @channel_adress = "#{@game.to_gid_param}:#{@currently_waiting.to_gid_param}"
+  end
+
+  def stream_message_to_currently_playing(message)
+    channel_adress = "#{@game.to_gid_param}:#{@currently_playing.to_gid_param}"
+
+    stream_message(message, channel_adress)
+  end
+
+  def stream_message_to_currently_waiting(message)
+    channel_adress = "#{@game.to_gid_param}:#{@currently_waiting.to_gid_param}"
+
+    stream_message(message, channel_adress)
+  end
+
+  def stream_message(message, channel_adress)
+    GameChannel.broadcast_to(
+      channel_adress,
+      html: turbo_stream.update(
+        "message",
+        partial: "games/referee_disclaimer",
+        locals: { text: message }
+      )
+    )
   end
 end

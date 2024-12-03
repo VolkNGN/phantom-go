@@ -1,3 +1,9 @@
+<div
+  id="game"
+  data-controller="game"
+  data-game-gameid-value="<%=@game.id%>"
+  data-game-playerid-value="<%=current_player.id%>"
+
 <div class="game-show-container">
   <!-- Header -->
   <%= render "games/header" %>
@@ -16,7 +22,21 @@
 
   <!-- button game -->
   <%= render "games/button_game" %>
-
-
-
+  
 </div>
+</div>
+
+<div id="message">
+<%= render "referee_disclaimer", text: @message%>
+</div>
+
+<%# Bonton "abandonner" %>
+<%=link_to "Abandonner" "#{@game.id}/give_up", data: {turbo_method: :patch} %>
+
+
+<%# Bouton "passer" %>
+<% if @currently_waiting == current_player%>
+passer pas clicable
+  <% else %>
+  <%= link_to "passer", "#{@game.id}/pass", data: {turbo_method: :patch} %>
+  <% end %>

@@ -22,17 +22,17 @@ export default class extends Controller {
     // if (intersection.querySelector('.stone')) {
     //   return;
     // }
-    if (intersection.dataset.status !== "empty" || this.colorValue === this.lastColorValue) {
-      return;
-    }
+    // if (intersection.dataset.status !== "empty" || this.colorValue === this.lastColorValue) {
+    //   return;
+    // }
 
     // Créer une nouvelle pierre
-    const stone = document.createElement('div');
-    stone.classList.add('stone', this.colorValue);
+    // const stone = document.createElement('div');
+    // stone.classList.add('stone', this.colorValue);
 
   // Placer la pierre dans l'intersection
-  intersection.appendChild(stone);
-  intersection.dataset.status = this.colorValue;
+  // intersection.appendChild(stone);
+  // intersection.dataset.status = this.colorValue;
 
   // Le fetch envoie les données au serveur
   fetch(`${this.gameidValue}/play`, {
@@ -43,7 +43,11 @@ export default class extends Controller {
     },
     body: JSON.stringify({"color": this.colorValue, "column":intersection.dataset.column, "row":intersection.dataset.row})
   })
-  .then(response => console.log(response))
+  .then(response => {
+    if (response.ok) {
+      location.reload();
+    }
+  })
 
  }
 }
