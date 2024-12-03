@@ -1,0 +1,40 @@
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  margin: 10px;
+
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px #212529;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &.btn-abandon {
+      background-color: #7900ff;
+      color: #fff; /* Texte blanc */
+      transition: background-color 0.3s;
+      padding: 13px 28px;
+
+      &:hover {
+        background-color: #5800cc;
+      }
+    }
+
+    &.btn-pass {
+      background-color: #00cfff;
+      color: #fff;
+      transition: background-color 0.3s;
+      padding: 13px 55px;
+
+      &:hover {
+        background-color: #009fb3;
+      }
+    }
+  }
+}

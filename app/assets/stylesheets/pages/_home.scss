@@ -1,19 +1,20 @@
-// Specific CSS for your home-page
 /* Styles globaux */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #8300FA, #331581); /* Couleur violette */
+  color: #FFF;
+  font-family: "Aoboshi One";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.374px;
+  background: linear-gradient(to bottom, #8300FA, #331581);
   color: white;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  margin: 10px;
+  padding: 10px;
 }
 
 .container {
@@ -32,6 +33,7 @@ body {
   justify-content: flex-end;
   padding: 10px 5px;
 }
+
 /* Main */
 .main {
   flex-grow: 1;
@@ -40,18 +42,16 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px;
-
 }
 
 img.logo-image {
- width: 271px;
- align-items: center;
+  width: 271px;
+  align-items: center;
 }
 
 img.board-image {
   width: 300px;
 }
-
 
 .game-board {
   margin: 20px 0;
@@ -63,7 +63,7 @@ img.board-image {
 }
 
 .auto-match-button {
-  background-color: #05CDE3; /* Couleur bleu clair */
+  background-color: #05CDE3;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -78,14 +78,94 @@ img.board-image {
   background-color: #3cb39f;
 }
 
-/* Footer */
-.footer {
-  padding: 30px;
-}
-
 .how-to-play {
   color: white;
   text-decoration: underline;
   font-size: 16px;
   cursor: pointer;
+}
+
+
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    height: auto;
+  }
+
+  .game-board {
+    margin: 10px 0;
+  }
+
+  img.logo-image {
+    width: 200px;
+  }
+
+  img.board-image {
+    width: 250px;
+  }
+
+  .auto-match-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  img.logo-image {
+    width: 230px;
+  }
+
+  img.board-image {
+    width: 280px;
+  }
+
+  .auto-match-button {
+    font-size: 17px;
+    padding: 12px 25px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 600px;
+  }
+
+  img.logo-image {
+    width: 250px;
+  }
+
+  img.board-image {
+    width: 320px;
+  }
+
+  .auto-match-button {
+    font-size: 18px;
+    padding: 14px 28px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .container {
+    max-width: 800px;
+  }
+
+  img.logo-image {
+    width: 300px;
+  }
+
+  img.board-image {
+    width: 350px;
+  }
+
+  .auto-match-button {
+    font-size: 20px;
+    padding: 16px 30px;
+  }
 }

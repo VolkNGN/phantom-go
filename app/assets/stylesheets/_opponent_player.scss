@@ -1,0 +1,64 @@
+.opponent-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 5px;
+  margin: 20px;
+
+  .timer-info {
+    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 45px;
+
+    .timer {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  .player-info {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .player-details {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .avatar-container {
+        .avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .username-container {
+        .username {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: #fff;
+          margin: 0;
+        }
+      }
+    }
+
+    .captures-container {
+      margin-top: 5px;
+      .captures {
+        font-size: 1rem;
+        color: #ffffff;
+        background-color: #ffffff57;
+        padding: 5px 10px;
+        border-radius: 8px;
+      }
+    }
+  }
+}
