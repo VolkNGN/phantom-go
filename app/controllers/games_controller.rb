@@ -76,12 +76,17 @@ class GamesController < ApplicationController
     @turn.row = params[:row]
     @turn.game = @game
     @turn.turn_number = @game.turns.count + 1
-    @turn.save
+    # @turn.save
     # recupérer la game et le joueur currently waiting
-    channel_adress = "#{game.to_gid_param}:#{player.to_gid_param}"
+    channel_adress = "#{@game.id}:#{@currently_waiting.id}"
     puts channel_adress
     GameChannel.broadcast_to(channel_adress, "C'est ton tour !")
     # le serveur repond au black player
+    if @turn.save
+      render json: { message: "Pierre superbement posée !", turn: @turn }, status: :created
+    else
+      render json: { message: @turn.errors.full_messages.join(", ") }, status: :unprocessable_entity
+    end
     # puts @turn.game
   end
 

@@ -8,7 +8,7 @@ class Game < ApplicationRecord
   def currently_playing
     if turns.empty?
       return black_player
-    elsif turns.last.even? # rubocop:disable Lint/DuplicateBranch
+    elsif turns.count.even? # rubocop:disable Lint/DuplicateBranch
       return black_player
     else
       return white_player
