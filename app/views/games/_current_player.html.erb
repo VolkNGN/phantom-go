@@ -1,0 +1,26 @@
+<div class="current-row row">
+  <div class="col-12 mt-3 d-flex justify-content-between align-items-center">
+
+    <div class="current-info d-flex align-items-center">
+      <div class="avatar-container">
+        <%= image_tag current_player.avatar, class: "avatar" if current_player.avatar.attached? %>
+      </div>
+      <div class="username-container">
+        <h2 class="username"><%= current_player.username %></h2>
+      </div>
+    </div>
+
+
+    <div class="timer-container">
+      <p class="timer" id="current-timer">02:58</p>
+    </div>
+  </div>
+
+
+  <div class="col-12 captures-section">
+    <div class="captures-info">
+      <p class="captures">Pierres capturées : 0</p>
+    </div>
+
+  </div>
+</div>

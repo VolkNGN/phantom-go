@@ -1,0 +1,57 @@
+.current-row {
+  margin-bottom: 20px;
+
+  .current-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+
+    .avatar-container {
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .username-container {
+      .username {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+  }
+
+  .timer-container {
+    text-align: right;
+    flex: 1; /* Prend tout l'espace droit */
+    .timer {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  .captures-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligne les éléments à droite */
+    gap: 10px;
+
+    .captures-info {
+
+
+      .captures {
+        font-size: 1rem;
+        color: #ffffff;
+        background-color: #ffffff57;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-align: left;
+      }
+    }
+  }
+}

@@ -6,11 +6,12 @@ export default class extends Controller {
 
   static values = {
     gameid: Number,
-    color: String
+    color: String,
+    lastColor: String
   }
 
   connect() {
-    console.log(this.colorValue)
+    // console.log(this.colorValue)
   }
 
   play(event) {
@@ -21,24 +22,32 @@ export default class extends Controller {
     // if (intersection.querySelector('.stone')) {
     //   return;
     // }
-    if (intersection.dataset.status !== "empty") {
-      return;
-    }
+    // if (intersection.dataset.status !== "empty" || this.colorValue === this.lastColorValue) {
+    //   return;
+    // }
 
     // Créer une nouvelle pierre
-    const stone = document.createElement('div');
-    stone.classList.add('stone', this.colorValue);
+    // const stone = document.createElement('div');
+    // stone.classList.add('stone', this.colorValue);
 
   // Placer la pierre dans l'intersection
-  intersection.appendChild(stone);
-  intersection.dataset.status = "black"
+  // intersection.appendChild(stone);
+  // intersection.dataset.status = this.colorValue;
 
-  // fetch(url)
-  // .then(response => response.json())
-  // .then((data) => {
-  //   console.log(data);
-  // });
-
+  // Le fetch envoie les données au serveur
+  fetch(`${this.gameidValue}/play`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+    },
+    body: JSON.stringify({"color": this.colorValue, "column":intersection.dataset.column, "row":intersection.dataset.row})
+  })
+  .then(response => {
+    if (response.ok) {
+      location.reload();
+    }
+  })
 
  }
 }

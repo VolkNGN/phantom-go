@@ -1,8 +1,27 @@
-<div id="goban" data-controller="goban" data-goban-gameid-value="<%=@game.id%>" data-goban-color-value="<%=@color%>">
-<%=render "line", row: "6" %>
-<%=render "line", row: "5" %>
-<%=render "line", row: "4" %>
-<%=render "line", row: "3" %>
-<%=render "line", row: "2" %>
-<%=render "line", row: "1" %>
+<div
+  id="game"
+  data-controller="game"
+  data-game-gameid-value="<%=@game.id%>"
+  data-game-playerid-value="<%=current_player.id%>"
+
+<div class="game-show-container">
+  <!-- Header -->
+  <%= render "games/header" %>
+
+  <!-- Opponent -->
+  <%= render "games/opponent" %>
+
+  <!-- Goban (plateau de jeu) -->
+  <%= render "games/goban" %>
+
+  <!-- Current Player -->
+  <%= render "games/current_player" %>
+
+  <!-- referee -->
+  <%= render "games/referee" %>
+
+  <!-- button game -->
+  <%= render "games/button_game" %>
+
+</div>
 </div>

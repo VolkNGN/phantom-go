@@ -1,0 +1,66 @@
+.opponent-row {
+  margin-bottom: 20px;
+
+  .timer-container {
+    text-align: left;
+    flex: 1; /* Prend tout l'espace gauche */
+    .timer {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  .opponent-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: right;
+
+    .avatar-container {
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .username-container {
+      .username {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+  }
+
+  .captures-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    .captures-info {
+      .captures {
+        font-size: 1rem;
+        color: #ffffff;
+        background-color: #ffffff57;
+        padding: 5px 10px;
+        border-radius: px;
+      }
+
+      .moves-info {
+        display: flex;
+        gap: 5px;
+        .moves {
+          background-color: #fff;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}

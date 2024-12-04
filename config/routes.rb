@@ -7,12 +7,29 @@ Rails.application.routes.draw do
 
   # Autres routes
   resources :games
+  patch "games/:id/play", to: "games#play"
+  patch "games/:id/pass", to: "games#pass"
+  patch "games/:id/give_up", to: "games#give_up"
 
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get '/how_to_play', to: 'static_pages#how_to_play', as: :how_to_play
+  get '/profile', to: 'players#profile', as: :profile
+
+
+  resources :availabilities, only: [:index, :show, :create, :destroy] do
+    collection do
+      post :match
+    end
+  end
+
+  resources :games do
+    member do
+      post :play_turn
+    end
+  end
+
+  # Routes pour la santé et les fichiers PWA
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/*
