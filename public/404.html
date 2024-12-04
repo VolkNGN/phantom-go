@@ -9,26 +9,40 @@
       justify-content: center;
       align-items: center;
       height: 105vh;
-      margin: 100;
+      margin: 0;
       font-family: 'Montserrat', sans-serif;
       overflow: hidden;
     }
 
-    .container {
+    .container-2 {
       text-align: center;
-      color: white;
       position: relative;
+      z-index: 1;
+      background-color: #95cee6; opacity: 0.7;
+      border-radius: 20px;
+      margin-inline: 20px;
+      padding: 30px;
+    }
+    .container {
+      width: 300px;
+      height: 280px;
+      position: absolute;
+      top: calc(50% - 140px);
+      left: calc(50% - 150px);
+    }
+
+    .ghost-container {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      z-index: 0;
     }
 
     .ghost {
       width: 200px;
-      height:200px;
+      height: 200px;
       background-image: url("https://res.cloudinary.com/dreiyfvcb/image/upload/v1733215355/White_pzlu0p.svg");
       background-size: cover;
       position: absolute;
@@ -51,27 +65,55 @@
     .large-text {
       font-size: 2.5em; /* Adjust the size as needed */
     }
+
+    h1, h2 {
+      color: #000; /* Set the color to black */
+    }
+
   </style>
 </head>
-
-  <div class="container" style="color: var(--color-100, #ffffff);">
+<body>
+  <div class="ghost-container"></div>
+  <div class="container-2" style="color: var(--color-100, #ffffff);">
     <h1 class="large-text">Oops!
       <br />
-       On dirait que vous vous etes perdus dans
+      On dirait que vous vous etes perdus dans
        <br />
        la Phantom Zone</h1>
     <h2 class="large-text">La page que vous cherchez n'existe pas.</h2>
   </div>
+  <div class="container" style="top: 623px;">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+  </div>
+
+
 
   <script>
-    // Generate and position 15 ghosts
+    // Generate and position 20 ghosts
     for (let i = 0; i < 20; i++) {
       const ghost = document.createElement('div');
       ghost.classList.add('ghost');
       ghost.style.left = `${Math.floor(Math.random() * 90)}%`;
       ghost.style.top = `${Math.floor(Math.random() * 90)}%`;
       ghost.style.animationDelay = `${Math.random() * 3}s`;
-      document.querySelector('.container').appendChild(ghost);
+      document.querySelector('.ghost-container').appendChild(ghost);
     }
   </script>
+</body>
 </html>
