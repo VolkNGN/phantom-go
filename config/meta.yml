@@ -1,4 +1,11 @@
-meta_product_name: "Product Name"
-meta_title: "Product name - Product tagline"
-meta_description: "Relevant description"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_product_name: "Phantom Go"
+meta_title: "Phantom Go - Immerse Yourself in Strategy"
+meta_description: "Phantom Go is the ultimate platform for Go enthusiasts. Challenge your friends, improve your skills, and enjoy stunning visuals."
+meta_image: "cover.png"
+meta_url: "https://phantom-go.online"
+meta_keywords:
+  - "Go game"
+  - "Board games"
+  - "Phantom Go"
+  - "Strategy games"
+  - "Play Go online"
