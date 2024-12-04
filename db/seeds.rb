@@ -30,8 +30,8 @@ players = players.each_with_index.map do |player_data, index|
   # Attacher une photo de profil si non attachée
   unless player.avatar.attached?
     player.avatar.attach(
-      io: URI.open(profile_pictures[i]),
-      filename: "profile_picture_#{i + 1}.jpg",
+      io: URI.open(profile_pictures[index]),
+      filename: "profile_picture_#{index + 1}.jpg",
       content_type: "image/jpeg"
     )
     puts "Avatar attached for '#{player.first_name} #{player.last_name}'."
