@@ -1,8 +1,11 @@
-<div class="referee-container">
-  <div class="referee-message-container">
-    <p class="referee-message">Coup impossible !</p>
-    </div>
-    <div class="referee-mascotte">
+<div class="referee-container mt-3 row align-items-center justify-content-between">
+  <!-- Message de l'arbitre -->
+  <div class="referee-message-container col-8 d-flex align-items-center">
+    <%= render "referee_disclaimer", text: @message %>
   </div>
-      <%= image_tag "mascotte.svg", alt: "Mascotte" %>
+
+  <!-- Mascotte de l'arbitre -->
+  <div class="referee-mascotte col-3 d-flex justify-content-center align-items-center">
+    <%= image_tag "mascotte.svg", alt: "Mascotte", class: "img-fluid" %>
+  </div>
 </div>
