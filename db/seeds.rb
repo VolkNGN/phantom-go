@@ -27,13 +27,14 @@ players = players.each_with_index.map do |player_data, index|
     p.password = player_data[:password]
   end
 
-  # Associer une image de profil via Active Storage
+  # Attacher une photo de profil si non attachée
   unless player.avatar.attached?
     player.avatar.attach(
-      io: URI.open(profile_pictures[index]),
-      filename: "#{player_data[:username].downcase}_profile.jpg",
+      io: URI.open(profile_pictures[i]),
+      filename: "profile_picture_#{i + 1}.jpg",
       content_type: "image/jpeg"
     )
+    puts "Avatar attached for '#{player.first_name} #{player.last_name}'."
   end
 
   puts "Player '#{player.username}' created with profile picture."
