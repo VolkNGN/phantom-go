@@ -5,13 +5,13 @@
 .home {
   background: var(
     --barckground-color,
-    linear-gradient(180deg, rgba(131, 0, 250, 1) 0%, rgba(51, 21, 129, 1) 100%)
+    linear-gradient(180deg, rgba(31, 0, 250, 1) 0%, rgba(51, 21, 129, 1) 100%)
   );
   height: 2121px;
   position: relative;
   overflow: hidden;
 }
-.rectangle-16 {
+.page-1 {
   background: var(
     --barckground-color,
     linear-gradient(180deg, rgba(131, 0, 250, 1) 0%, rgba(51, 21, 129, 1) 100%)
@@ -22,7 +22,72 @@
   left: 0px;
   top: 0px;
 }
-.rectangle-18 {
+.logo-phantom-go {
+  width: 271px;
+  height: 124px;
+  position: absolute;
+  left: 70px;
+  top: 188px;
+  overflow: hidden;
+}
+
+.game-board {
+  width: 340px;
+  height: 320px;
+  position: absolute;
+  left: 36px;
+  top: 227px;
+  object-fit: cover;
+}
+.buttons {
+  background:  #05cde3;
+  border-radius: 5px;
+  padding: 11px 25px 11px 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px; align-items: center; justify-content: center; width: 196px;
+  height: 48px; position: absolute; left: 107px; top: 547px;
+}
+.referee-mascotte-1 {
+  width: 16.14%;
+  height: 68.57%;
+  position: absolute;
+  right: 83.73%; left: 0.13%; bottom: 0.46%; top: 30.97%;
+  transform: translate(-0.34px, 0px);
+  overflow: visible;
+}
+.bulle-phantom-container-1 {
+  width: 263px; height: 67.81px; position: absolute; left: 61px; top: 819px;
+}
+.phantom-help-1 {
+  color: var(--secondary-color, #331581);
+  text-align: center;
+  font-family: "AoboshiOne-Regular", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  position: absolute; left: 21px; top: 12px; width: 250px;
+}
+.bulle-phantom-1 {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 33px;
+  width: 89.73%;
+  height: 70.79%;
+  position: absolute;
+  right: 0%;
+  left: 10.27%;
+  bottom: 29.21%;
+  top: 0%;
+}
+.fleche {
+  width: 23px;
+  height: 10px;
+  position: absolute;
+  left: 217px;
+  top: 896px;
+  transform: translate(-21.46px, -7.5px);
+  overflow: visible;
+}
+.footer {
   background: var(
     --barckground-color,
     linear-gradient(180deg, rgba(131, 0, 250, 1) 0%, rgba(51, 21, 129, 1) 100%)
@@ -33,7 +98,8 @@
   left: 0px;
   top: 1834px;
 }
-.rectangle-17 {
+
+.page-2 {
   background: var(
     --barckground-color,
     linear-gradient(180deg, rgba(131, 0, 250, 1) 0%, rgba(51, 21, 129, 1) 100%)
@@ -46,65 +112,10 @@
   transform-origin: 0 0;
   transform: rotate(0deg) scale(1, -1);
 }
-.component-7 {
-  width: 179px;
-  height: 194px;
+.illustration-rule-1 {
+  width: 179px; height: 194px; left: 16px; top: 959px;
   position: absolute;
-  left: 217px;
-  top: 1189px;
   overflow: visible;
-}
-.component-6 {
-  width: 179px;
-  height: 194px;
-  position: absolute;
-  left: 16px;
-  top: 959px;
-  overflow: visible;
-}
-.logo-white-1 {
-  width: 271px;
-  height: 124px;
-  position: absolute;
-  left: 70px;
-  top: 188px;
-  overflow: hidden;
-}
-
-
-.calque-1 {
-  height: auto;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  overflow: visible;
-}
-.buttons {
-  background:  #05cde3;
-  border-radius: 5px;
-  padding: 11px 25px 11px 25px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  width: 196px;
-  height: 48px;
-  position: absolute;
-  left: 107px;
-  top: 547px;
-}
-
-.auto-match-button {
-  text-decoration: none;
-}
-.game-board {
-  width: 340px;
-  height: 320px;
-  position: absolute;
-  left: 36px;
-  top: 227px;
-  object-fit: cover;
 }
 .regle1 {
   color: var(--color-100, #ffffff);
@@ -112,23 +123,27 @@
   font-family: "AoboshiOne-Regular", sans-serif;
   font-size: 12px;
   font-weight: 400;
+  position: absolute; left: 217px; top: 959px; width: 178px; height: 194px;
+}
+.illustration-rule-2 {
+  width: 179px; height: 194px; left: 217px; top: 1189px;
   position: absolute;
-  left: 217px;
-  top: 959px;
-  width: 178px;
-  height: 194px;
+  overflow: visible;
 }
 .regle2 {
   color: var(--color-100, #ffffff);
   text-align: left;
   font-family: "AoboshiOne-Regular", sans-serif;
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 12px; font-weight: 400;
   position: absolute;
-  left: 217px;
-  top: 1420px;
-  width: 178px;
+  left: 17px; top: 1190px; width: 178px; height: 194px;
+}
+.illustration-rule-3 {
+  width: 179px;
   height: 194px;
+  position: absolute;
+  left: 16px; top: 1420px;
+  overflow: visible;
 }
 .regle3 {
   color: var(--color-100, #ffffff);
@@ -136,18 +151,12 @@
   font-family: "AoboshiOne-Regular", sans-serif;
   font-size: 12px;
   font-weight: 400;
-  position: absolute;
-  left: 17px;
-  top: 1190px;
-  width: 178px;
-  height: 194px;
+  position: absolute; left: 217px; top: 1420px; width: 178px; height: 194px;
 }
-.component-5 {
+.illustration-rule-4 {
   width: 178px;
   height: 133.56px;
-  position: absolute;
-  left: 217px;
-  top: 1650px;
+  position: absolute; left: 217px; top: 1650px;
   overflow: visible;
 }
 .regle4 {
@@ -157,27 +166,7 @@
   font-size: 12px;
   font-weight: 400;
   position: absolute;
-  left: 17px;
-  top: 1651px;
-  width: 178px;
-  height: 194px;
-}
-.polygon-1 {
-  width: 23px;
-  height: 10px;
-  position: absolute;
-  left: 217px;
-  top: 896px;
-  transform: translate(-21.46px, -7.5px);
-  overflow: visible;
-}
-.component-8 {
-  width: 179px;
-  height: 194px;
-  position: absolute;
-  left: 16px;
-  top: 1420px;
-  overflow: visible;
+  left: 17px; top: 1651px; width: 178px; height: 194px;
 }
 .buttons2 {
   background: var(--highlight-color, #05cde3);
@@ -187,121 +176,47 @@
   flex-direction: row;
   gap: 10px;
   align-items: center;
+  position: absolute;
   justify-content: center;
-  width: 196px;
-  height: 48px;
-  position: absolute;
-  left: 108px;
-  top: 2008px;
+  width: 196px; height: 48px; left: 108px; top: 2008px;
 }
-.component-10 {
-  width: 263px;
-  height: 67.81px;
-  position: absolute;
-  left: 61px;
-  top: 819px;
-}
-.rectangle-15 {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 33px;
-  width: 89.73%;
-  height: 70.79%;
-  position: absolute;
-  right: 0%;
-  left: 10.27%;
-  bottom: 29.21%;
-  top: 0%;
-}
-.white {
-  width: 16.14%;
-  height: 68.57%;
-  position: absolute;
-  right: 83.73%;
-  left: 0.13%;
-  bottom: 0.46%;
-  top: 30.97%;
-  transform: translate(-0.34px, 0px);
-  overflow: visible;
-}
-
-.aide {
-  color: var(--secondary-color, #331581);
-  text-align: center;
-  font-family: "AoboshiOne-Regular", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  position: absolute;
-  left: 21px;
-  top: 12px;
-  width: 250px;
-}
-.component-9 {
+.bulle-phantom-container {
   width: 378px;
   height: 130px;
   position: absolute;
-  left: 17px;
-  top: 1826px;
+  left: 17px; top: 1826px;
 }
-.rectangle-40 {
+.bulle-phantom {
   background: #ffffff;
   border-radius: 100px;
   width: 85.45%;
   height: 100%;
   position: absolute;
-  right: 0%;
-  left: 14.55%;
-  bottom: 0%;
-  top: 0%;
+  right: 0%; left: 14.55%; bottom: 0%; top: 0%;
 }
-.phantom-help {
+.phantom-help-2 {
   color: var(--color-900, #000000);
   text-align: left;
   font-family: "AoboshiOne-Regular", sans-serif;
   font-size: 14px;
   font-weight: 400;
   position: absolute;
-  left: 91px;
-  top: 14px;
-  width: 252px;
-  height: 108px;
+  left: 91px; top: 14px; width: 252px; height: 108px;
 }
-.white2 {
-  width: 11.23%;
-  height: 35.76%;
+.referee-mascotte-2 {
+  width: 11.23%; height: 35.76%;
   position: absolute;
-  right: 88.68%;
-  left: 0.09%;
-  bottom: 31.93%;
-  top: 32.31%;
+  right: 88.68%; left: 0.09%; bottom: 31.93%; top: 32.31%;
   transform: translate(-0.34px, 0px);
   overflow: visible;
 }
-.component-11 {
-  width: 54px;
-  height: 44px;
+.profile-container {
+  width: 54px; height: 44px; left: 352px; top: 850px;
   position: sticky;
-  left: 352px;
-  top: 850px;
 }
-.ellipse-11 {
 
+.profile {
   border-radius: 50%;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   position: absolute;
-  right: 0%;
-  left: 0%;
-  bottom: 0%;
-  top: 0%;
-
-}
-.users-02 {
-  width: 72.73%;
-  height: 72.73%;
-  position: absolute;
-  right: 2.27%;
-  left: 25%;
-  bottom: 9.09%;
-  top: 18.18%;
-  overflow: visible;
 }
