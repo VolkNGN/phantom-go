@@ -13,7 +13,7 @@
         <h2 class="username"><%= opponent.username %></h2>
       </div>
       <div class="avatar-container">
-        <%= image_tag opponent.avatar, class: "avatar" if opponent.avatar.attached? %>
+        <%= image_tag opponent.avatar.url, class: "avatar" if opponent.avatar.attached? %>
       </div>
     </div>
   </div>

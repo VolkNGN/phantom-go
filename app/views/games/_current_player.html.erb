@@ -3,7 +3,7 @@
 
     <div class="current-info d-flex align-items-center">
       <div class="avatar-container">
-        <%= image_tag current_player.avatar, class: "avatar" if current_player.avatar.attached? %>
+        <%= image_tag current_player.avatar.url, class: "avatar" if current_player.avatar.attached? %>
       </div>
       <div class="username-container">
         <h2 class="username"><%= current_player.username %></h2>
