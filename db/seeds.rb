@@ -2,11 +2,11 @@ require 'open-uri'
 
 # URLs des images de profil
 profile_pictures = [
-  "https://res.cloudinary.com/devmujjf6/image/upload/v1732706519/1998-mulan-01_obl5u9.jpg",
-  "https://res.cloudinary.com/devmujjf6/image/upload/v1732706725/latest_rystpk.png",
-  "https://res.cloudinary.com/devmujjf6/image/upload/v1732706487/1989-ariel-001_nuptnt.jpg",
-  "https://res.cloudinary.com/devmujjf6/image/upload/v1732706601/latest_z90jge.png",
-  "https://res.cloudinary.com/devmujjf6/image/upload/v1732706788/latest_w2ngly.png"
+  "https://res.cloudinary.com/devmujjf6/image/upload/v1733328386/1998-mulan-01_huefet.jpg",
+  "https://res.cloudinary.com/devmujjf6/image/upload/v1733328386/Elsa_lezciz.webp",
+  "https://res.cloudinary.com/devmujjf6/image/upload/v1733328387/Ariel_iwjkds.webp",
+  "https://res.cloudinary.com/devmujjf6/image/upload/v1733328386/Profile_-_Tarzan_iiivph.webp",
+  "https://res.cloudinary.com/devmujjf6/image/upload/v1733328386/Profile_-_Miguel_Rivera_wdj76a.webp"
 ]
 
 # Seed des joueurs (Players)
