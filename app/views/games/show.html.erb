@@ -2,27 +2,26 @@
   id="game"
   data-controller="game"
   data-game-gameid-value="<%=@game.id%>"
-  data-game-playerid-value="<%=current_player.id%>"
+  data-game-playerid-value="<%=current_player.id%>">
 
 <div class="game-show-container">
-  <!-- Header -->
-  <%= render "games/header" %>
+    <!-- Header -->
+    <%= render "games/header" %>
 
-  <!-- Opponent -->
-  <%= render "games/opponent", opponent_captured_stones: @opponent_captured_stones %>
+    <!-- Opponent -->
+    <%= render "games/opponent", opponent_captured_stones: @opponent_captured_stones %>
 
-  <!-- Goban (plateau de jeu) -->
-  <%= render "games/goban", game: @game, goban: @goban, color: @color %>
+    <!-- Goban (plateau de jeu) -->
+    <%= render "games/goban", game: @game, goban: @goban, color: @color %>
 
-  <!-- Current Player -->
-  <%= render "games/current_player", current_captured_stones: @current_captured_stones %>
+    <!-- Current Player -->
+    <%= render "games/current_player", current_captured_stones: @current_captured_stones %>
 
-  <!-- referee -->
-  <%= render "games/referee", message: @message %>
+    <!-- referee -->
+    <%= render "games/referee", message: @message %>
 
-  <!-- button game -->
-  <%= render "games/button_game" %>
+    <!-- button game -->
+    <%= render "games/button_game" %>
 
-</div>
-</div>
+  </div>
 </div>
