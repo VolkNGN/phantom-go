@@ -1,6 +1,6 @@
-  <div class="container">
-
-    <main class="main">
+<div class="container-home">
+  <div class="content-home">
+    <div class="welcome">
       <div class="logo">
         <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1732802263/Logo_white_1_pf2tt7.png" alt="Phantom Go" class="logo-image">
       </div>
@@ -8,12 +8,10 @@
       <div class="game-board">
         <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/c_fill,w_200,h_100,g_auto/v1732802243/goboard_qppngf.png" alt="Plateau de jeu" class="board-image">
       </div>
+
       <%= button_to "Jouer", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
-      <%= render 'components/fleche' %>
+    </div>
       <%= render 'components/bulle' %>
-      <%= render 'components/rules' %>
-    </main>
-    <footer class="footer">
-      <%= render 'components/profile' %>
-    </footer>
   </div>
+   <%= render 'components/fleche' %>
+</div>
