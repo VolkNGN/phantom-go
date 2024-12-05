@@ -1,0 +1,64 @@
+body {
+
+
+  .rules {
+    .regle1, .regle2, .regle3, .regle4 {
+      color: var(--color-100, #ffffff);
+      text-align: left;
+      font-family: "AoboshiOne-Regular", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      position: absolute;
+      width: 178px;
+      height: 194px;
+      line-height: 1.5; /* Ajout de la propriété line-height */
+    }
+
+    .regle1 {
+      left: 217px;
+      top: 959px;
+    }
+
+    .regle2 {
+      left: 17px;
+      top: 1190px;
+    }
+
+    .regle3 {
+      left: 217px;
+      top: 1420px;
+    }
+
+    .regle4 {
+      left: 17px;
+      top: 1651px;
+    }
+
+    .illustration-rule-1, .illustration-rule-2, .illustration-rule-3, .illustration-rule-4 {
+      width: 179px;
+      height: 194px;
+      position: absolute;
+      overflow: auto;
+    }
+
+    .illustration-rule-1 {
+      left: 16px;
+      top: 959px;
+    }
+
+    .illustration-rule-2 {
+      left: 217px;
+      top: 1189px;
+    }
+
+    .illustration-rule-3 {
+      left: 16px;
+      top: 1420px;
+    }
+
+    .illustration-rule-4 {
+      left: 217px;
+      top: 1625px;
+    }
+  }
+}

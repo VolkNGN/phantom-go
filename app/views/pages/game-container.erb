@@ -1,0 +1,190 @@
+<style>
+  .game-container {
+    background: var(--Barckground-color, linear-gradient(180deg, #8300fa 0%, #331581 100%));
+    display: flex;
+    max-width: 480px;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .hero-section {
+    background: var(--Barckground-color, linear-gradient(180deg, #8300fa 0%, #331581 100%));
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 188px 12px 15px 36px;
+  }
+
+  .game-board-icon {
+    display: flex;
+    width: 340px;
+    max-width: 100%;
+    height: 359px;
+  }
+
+  .play-button {
+    align-self: center;
+    border-radius: 5px;
+    background-color: rgba(5, 205, 227, 1);
+    min-height: 48px;
+    width: 196px;
+    max-width: 100%;
+    color: var(--color-100, #fff);
+    padding: 13px 25px;
+    font: 400 16px Aoboshi One, sans-serif;
+  }
+
+  .navigation-wrapper {
+    align-self: end;
+    display: flex;
+    margin-top: 224px;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .nav-icons {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 0;
+    width: fit-content;
+  }
+
+  .nav-logo {
+    aspect-ratio: 3.86;
+    object-fit: contain;
+    width: 263px;
+  }
+
+  .nav-arrow {
+    aspect-ratio: 2.72;
+    object-fit: contain;
+    width: 19px;
+    align-self: center;
+    margin-left: 13px;
+  }
+
+  .nav-dot {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 52px;
+    align-self: end;
+    margin-top: 31px;
+  }
+
+  .rules-section {
+    background: var(--Barckground-color, linear-gradient(180deg, #8300fa 0%, #331581 100%));
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    color: var(--color-100, #fff);
+    padding: 46px 16px;
+    font: 400 12px Aoboshi One, sans-serif;
+  }
+
+  .rule-block {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .rule-block:not(:first-child) {
+    margin-top: 36px;
+  }
+
+  .rule-image {
+    aspect-ratio: 0.92;
+    object-fit: contain;
+    width: 179px;
+    max-width: 100%;
+  }
+
+  .footer-section {
+    background: var(--Barckground-color, linear-gradient(180deg, #8300fa 0%, #331581 100%));
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    color: var(--color-100, #fff);
+    padding: 0 17px 65px;
+    font: 400 16px Aoboshi One, sans-serif;
+  }
+
+  .footer-image {
+    aspect-ratio: 2.91;
+    object-fit: contain;
+    width: 100%;
+    z-index: 10;
+    margin-top: -8px;
+  }
+
+  .footer-button {
+    align-self: center;
+    border-radius: 5px;
+    background-color: rgba(5, 205, 227, 1);
+    margin-top: 52px;
+    min-height: 48px;
+    width: 196px;
+    max-width: 100%;
+    padding: 13px 25px;
+  }
+</style>
+
+<div class="game-container">
+  <section class="hero-section">
+    <div class="game-board-icon" role="img" aria-label="Go board game 3D icon"></div>
+    <button class="play-button" tabindex="0">Jouer</button>
+    <div class="navigation-wrapper">
+      <div class="nav-icons">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ad17c2340dc6ef40baa84b5ff0f80f77209b9d45174ed64ba81a9dfd4fa3030b?placeholderIfAbsent=true&apiKey=ea4093909d73470d923c255de310a725" class="nav-logo" alt="Navigation logo" />
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ffad34a476d6685fa86d6265d2e5fa9e9e43c18774ffbe5870ef36dbc0c37d9e?placeholderIfAbsent=true&apiKey=ea4093909d73470d923c255de310a725" class="nav-arrow" alt="Navigation arrow" />
+      </div>
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/838ae42c63fc961d7d7d54a85a5ffe70c60eea18b0444474bd9b21a62032ada5?placeholderIfAbsent=true&apiKey=ea4093909d73470d923c255de310a725" class="nav-dot" alt="Navigation indicator" />
+    </div>
+  </section>
+
+  <section class="rules-section">
+    <div class="rule-block">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4542eb3d0a5737a3a673234453f6653804446afccef69b175af2792286f7b143?placeholderIfAbsent=true&apiKey=ea4093909d73470d923c255de310a725" class="rule-image" alt="Game board setup illustration" />
+      <div>
+        Ici, le jeu se joue sur un plateau de 6x6 intersections.
+        <br /><br />
+        Un joueur utilise des pierres noires, l'autre des pierres blanches. Noir commence toujours !
+        <br /><br />
+        Les joueurs placent une pierre à tour de rôle sur les intersections vides du plateau.
+      </div>
+    </div>
+
+    <div class="rule-block">
+      <div>
+        Une pierre ou un groupe de pierres a des "libertés", c'est-à-dire des intersections vides adjacentes.
+        <br /><br />
+        Si toutes les libertés sont occupées par l'adversaire, les pierres sont capturées et retirées du plateau !
+      </div>
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b16346474a0449fd6022042b02751cd66c8e04a5f5103e0c17927f9e15967c?placeholderIfAbsent=true&apiKey=ea4093909d73470d923c255de310a725" class="rule-image" alt="Game pieces capture illustration" />
+    </div>
+
+    <div class="rule-block">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9360763a4b1886e2463766bf4169dc37bb3dc1c936ebf04be3ff3b5f5e3819a0?placeholderIfAbsent=true&apiKey=ea4093909d73470d923c255de310a725" class="rule-image" alt="End game scoring illustration" />
+      <div>
+        La partie se termine lorsque les deux joueurs passent leur tour consécutivement.
+        <br /><br />
+        Chaque joueur compte les intersections vides qu'il contrôle et les pierres capturées. Le joueur avec le plus de points (territoire + captures) gagne.
+      </div>
+    </div>
+
+    <div class="rule-block">
+      <div>
+        Au go fantôme, comme dans une bataille navale, les pierres de l'adversaire sont invisibles sur le plateau. Cela signifie que chaque joueur ne connaît que ses propres coups et doit déduire l'emplacement des pierres adverses !
+      </div>
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6752713f02211b8016806a5df488fc1f29b5e504cd811bb0c2b1cd5b7cf2ff29?placeholderIfAbsent=true&apiKey=ea4093909d73470d923c255de310a725" class="rule-image" alt="Ghost Go game mechanics illustration" />
+    </div>
+  </section>
+
+  <section class="footer-section">
+    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fbe8ec86f4c17fba638ee1fa82c11415eb253c6df2d1a38ded29771adcc56a4d?placeholderIfAbsent=true&apiKey=ea4093909d73470d923c255de310a725" class="footer-image" alt="Decorative footer image" />
+    <button class="footer-button" tabindex="0">Jouer</button>
+  </section>
+</div>
