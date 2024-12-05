@@ -3,7 +3,7 @@
 
     <div class="current-info d-flex align-items-center">
       <div class="avatar-container">
-        <%= image_tag current_player.avatar.url, class: "avatar" if current_player.avatar.attached? %>
+        <%= image_tag current_player.avatar, class: "avatar" if current_player.avatar.attached? %>
       </div>
       <div class="username-container">
         <h2 class="username"><%= current_player.username %></h2>
@@ -11,17 +11,15 @@
     </div>
 
 
-
     <div class="timer-container">
-      <p class="timer" id="current-timer">02:58</p>
+      <p class="timer" id="current-timer"></p>
     </div>
   </div>
 
 
-  <div class="col-12 captures-section">
-    <!-- Captures -->
+  <div class="col-12">
     <div class="captures-info">
-      <p class="captures"><%=current_captured_stones%></p>
+      <p class="captures fs-2">13 points</p>
     </div>
 
   </div>

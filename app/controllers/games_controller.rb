@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_player! # S'assurer que le joueur est connecté
-  before_action :set_game, only: %i[show play pass give_up]
+  before_action :set_game, only: %i[show play pass give_up result]
 
   # Méthode show affiche la couleur du current_player
   def show
@@ -38,13 +38,16 @@ class GamesController < ApplicationController
 
   def pass
     # Il faut regarder si le tour d'avant est un pass alors c'est game over
-    @game.turns.create(turn_number: @game.turns.count + 1)
-    redirect_to game_path(@game)
+    # @game.turns.create(turn_number: @game.turns.count + 1)
+    redirect_to game_result_path(@game)
   end
 
   def give_up
     @game.update(winner_id: @currently_waiting.id, status: "finished")
     redirect_to game_path(@game), notice: "#{@currently_waiting} a remporté la partie !"
+  end
+
+  def result
   end
 
   private
@@ -103,9 +106,7 @@ class GamesController < ApplicationController
     channel_adress = "#{@game.to_gid_param}:#{@currently_waiting.to_gid_param}"
 
     color = @game.color_of(@currently_playing)
-    puts "\n\n\n\n\n"
-    p @game.score_for(color)
-    p @game.turns.last
+
     GameChannel.broadcast_to(
       channel_adress,
       html: turbo_stream.update(

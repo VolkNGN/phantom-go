@@ -1,4 +1,13 @@
-<div class="button-container">
-  <%= button_to "Abandonner", "#", class: "btn btn-abandon", method: :post %>
-  <%= button_to "Passer", "#", class: "btn btn-pass", method: :post %>
+<div class="button-container d-flex justify-content-center gap-3 mt-3">
+  <!-- Bouton Abandonner -->
+  <%= link_to "Abandonner", "#{@game.id}/give_up", class: "btn btn-danger btn-abandon d-flex justify-content-between align-items-center", data: { turbo_method: :patch } %>
+
+  <!-- Bouton Passer ou En attente -->
+  <% if @currently_waiting == current_player %>
+    <div class="btn btn-secondary btn-pass disabled">
+      En attente
+    </div>
+  <% else %>
+    <%= link_to "Passer", game_result_path(@game), class: "btn btn-primary btn-pass d-flex justify-content-between align-items-center" %>
+  <% end %>
 </div>

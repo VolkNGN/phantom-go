@@ -29,7 +29,7 @@
       </div>
 
       <div class="game-board">
-        <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/c_fill,w_200,h_100,g_auto/v1732802243/goboard_qppngf.png" alt="Plateau de jeu" class="board-image">
+        <%= image_tag("board.png")%>
       </div>
         <%= button_to "Auto-Match", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
 

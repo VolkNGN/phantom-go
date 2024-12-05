@@ -25,14 +25,4 @@
 
 </div>
 </div>
-
-<%# Bonton "abandonner" %>
-<%=link_to "Abandonner" "#{@game.id}/give_up", data: {turbo_method: :patch} %>
-
-
-<%# Bouton "passer" %>
-<% if @currently_waiting == current_player%>
-passer pas clicable
-  <% else %>
-  <%= link_to "passer", "#{@game.id}/pass", data: {turbo_method: :patch} %>
-  <% end %>
+</div>
