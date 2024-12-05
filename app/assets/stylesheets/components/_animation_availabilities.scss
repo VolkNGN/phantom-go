@@ -1,0 +1,48 @@
+.animation-white {
+  width: 200px;
+  height: 240px;
+  background-image: url(white_phantom.png);
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-20px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.animation-black {
+  width: 200px;
+  height: 230px;
+  background-image: url(black_phantom.png);
+  position: relative;
+  animation: float 3.6s ease-in-out infinite;
+  margin-top: -90px;
+  background-size: 85%;
+  background-repeat: no-repeat;
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-20px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+}
