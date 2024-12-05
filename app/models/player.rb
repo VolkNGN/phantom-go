@@ -10,7 +10,7 @@ class Player < ApplicationRecord
   has_many :received_friendships, class_name: 'Friendship', foreign_key: 'receiver_id'
 
   has_one :availability
-  has_one_attached :profile_picture
+  has_one_attached :photo
   has_one_attached :avatar
 
   validates :first_name, presence: true
