@@ -23,20 +23,8 @@ body {
   overflow: auto;
   margin: 10px;
   padding: 10px;
-  height: 100vh;
   box-sizing: border-box;
 
-}
-
-.container {
-  width: 100%;
-  max-width: 412px;
-  height: 917px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  overflow: auto;
 }
 
 /* Header */
