@@ -1,0 +1,11 @@
+<div class="profile-container">
+  <% if player_signed_in? %>
+    <%= link_to profile_path do %>
+      <img class="profile" src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733235671/Component_11_rly63e.svg" alt="Profile" />
+    <% end %>
+  <% else %>
+    <%= link_to new_player_session_path do %>
+      <img class="profile" src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733235671/Component_11_rly63e.svg" alt="Profile" />
+    <% end %>
+  <% end %>
+</div>

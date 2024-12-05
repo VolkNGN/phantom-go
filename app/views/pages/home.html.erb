@@ -4,24 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=412, initial-scale=1.0">
   <title>Phantom Go</title>
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
 </head>
 <body>
   <div class="container">
-    <header class="header">
-      <div class="profile-icon">
-        <% if player_signed_in? %>
-          <%= link_to profile_path, class: "profile-button" do %>
-            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
-          <% end %>
-        <% else %>
-          <%= link_to new_player_session_path, class: "profile-button" do %>
-            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </header>
 
     <main class="main">
       <div class="logo">
@@ -31,12 +17,13 @@
       <div class="game-board">
         <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/c_fill,w_200,h_100,g_auto/v1732802243/goboard_qppngf.png" alt="Plateau de jeu" class="board-image">
       </div>
-        <%= button_to "Auto-Match", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
-
+      <%= button_to "Jouer", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
+      <%= render 'components/fleche' %>
+      <%= render 'components/bulle' %>
+      <%= render 'components/rules' %>
     </main>
-
     <footer class="footer">
-      <%= link_to "Comment jouer ?", how_to_play_path, class: "how-to-play" %>
+      <%= render 'components/profile' %>
     </footer>
   </div>
 </body>

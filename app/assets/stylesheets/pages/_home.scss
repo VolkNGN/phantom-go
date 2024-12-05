@@ -1,3 +1,11 @@
+// Importer les fichiers SCSS des composants
+@import '../components/buttons';
+@import '../components/referee';
+@import '../components/bulle';
+@import '../components/rules';
+@import '../components/profile';
+@import '../components/fleche';
+
 /* Styles globaux */
 body {
   color: #FFF;
@@ -12,11 +20,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: auto;
   margin: 10px;
   padding: 10px;
   height: 100vh;
   box-sizing: border-box;
+
 }
 
 .container {
@@ -27,6 +36,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  overflow: auto;
 }
 
 /* Header */
@@ -34,6 +44,7 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 10px 5px;
+  overflow: auto;
 }
 
 /* Main */
@@ -44,11 +55,14 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  overflow: auto;
 }
 
 img.logo-image {
   width: 271px;
   align-items: center;
+  overflow: auto;
+
 }
 
 img.board-image {
@@ -78,13 +92,6 @@ img.board-image {
 
 .auto-match-button:hover {
   background-color: #3cb39f;
-}
-
-.how-to-play {
-  color: white;
-  text-decoration: underline;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 
