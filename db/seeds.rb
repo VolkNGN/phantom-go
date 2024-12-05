@@ -34,14 +34,5 @@ players.each_with_index do |player_data, index|
   puts "Player '#{player.username}' created with profile picture."
 end
 
-# Seed des disponibilités (Availabilities)
-puts "Creating availabilities..."
-Player.all.each do |player|
-  Availability.find_or_create_by!(player: player) do |availability|
-    availability.status = "available"
-  end
-  puts "Availability for player '#{player.username}' created."
-end
-
 puts "2 joueurs fictifs (Elsa et Sai) créés avec succès avec leurs photos de profil !"
 puts "Seeding complete!"
