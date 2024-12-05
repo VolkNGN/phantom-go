@@ -34,13 +34,16 @@ class GamesController < ApplicationController
 
   def pass
     # Il faut regarder si le tour d'avant est un pass alors c'est game over
-    @game.turns.create(turn_number: @game.turns.count + 1)
-    redirect_to game_path(@game)
+    # @game.turns.create(turn_number: @game.turns.count + 1)
+    redirect_to game_result_path(@game)
   end
 
   def give_up
     @game.update(winner_id: @currently_waiting.id, status: "finished")
     redirect_to game_path(@game), notice: "#{@currently_waiting} a remporté la partie !"
+  end
+
+  def result
   end
 
   private

@@ -1,0 +1,30 @@
+<% opponent = current_player == @game.black_player ? @game.white_player : @game.black_player %>
+
+<div class="opponent-row row">
+
+  <div class="col-12 mt-3 d-flex justify-content-between align-items-center">
+    <!-- Timer à gauche -->
+    <div class="timer-container">
+      <p class="timer" id="opponent-timer"></p>
+    </div>
+
+    <div class="opponent-info d-flex align-items-center">
+      <div class="username-container">
+        <h2 class="username"><%= opponent.username %></h2>
+      </div>
+      <div class="avatar-container">
+        <%= image_tag opponent.avatar, class: "avatar" if opponent.avatar.attached? %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="captures-info">
+      <p class="captures fs-2">6 points</p>
+        <div class="moves-info">
+          <p class="moves"></p>
+        </div>
+    </div>
+
+  </div>
+</div>
