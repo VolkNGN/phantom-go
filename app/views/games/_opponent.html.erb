@@ -21,9 +21,8 @@
     </div>
 
     <!-- Captures -->
-    <div class="captures-container">
-      <p class="captures">0 pierre(s) capturée(s)</p>
+    <div id="captures-container" class="captures-container">
+      <%= render "captured_score", captured_stones: opponent_captured_stones%>
     </div>
   </div>
 </div>
-
