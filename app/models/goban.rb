@@ -19,7 +19,11 @@ class Goban
       [FreeIntersection.new("A", 1), FreeIntersection.new("B", 1), FreeIntersection.new("C", 1),
        FreeIntersection.new("D", 1), FreeIntersection.new("E", 1), FreeIntersection.new("F", 1)]
     ]
-    read_turns_list
+  end
+
+  def stone_at(column, row)
+    column_as_integer = COLUMNS.index(column)
+    @stones_list[6 - row][column_as_integer]
   end
 
   # Je veux pouvoir placer une pierre sur le goban
@@ -107,18 +111,16 @@ class Goban
   end
 
   def free_intersection?(stone)
-    intersection = goban.stones_list[6 - stone.row][COLUMNS.index(stone.column)]
+    intersection = @stones_list[6 - stone.row][COLUMNS.index(stone.column)]
     return true if intersection.color.nil?
 
     return false
   end
 
-  private
-
-  def read_turns_list
+  def prepare
     # Je vais prendre chaque coup de la move_list et le jouer
     @game.turns.each do |turn|
-      @game.play(turn.color, turn.column, turn.row)
+      @game.play(turn.color, turn.column, turn.row, turn.turn_number)
     end
   end
 end

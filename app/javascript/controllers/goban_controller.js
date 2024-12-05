@@ -6,8 +6,7 @@ export default class extends Controller {
 
   static values = {
     gameid: Number,
-    color: String,
-    lastColor: String
+    color: String
   }
 
   connect() {
