@@ -12,16 +12,17 @@
   <%= render "games/opponent" %>
 
   <!-- Goban (plateau de jeu) -->
-  <%= render "games/goban" %>
+  <%= render "games/goban", game: @game, goban: @goban, color: @color %>
 
   <!-- Current Player -->
   <%= render "games/current_player" %>
 
   <!-- referee -->
-  <%= render "games/referee" %>
+  <%= render "games/referee", message: @message %>
 
   <!-- button game -->
   <%= render "games/button_game" %>
 
+</div>
 </div>
 </div>
