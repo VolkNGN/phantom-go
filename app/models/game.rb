@@ -11,19 +11,25 @@ class Game < ApplicationRecord
   enum turn: %i[black white]
 
   def currently_playing
-    if turns.empty?
-      return black_player
-    elsif turns.count.even? # rubocop:disable Lint/DuplicateBranch
-      return black_player
+    return black_player if next_turn.odd?
+
+    return white_player
+  end
+
+  def score_for(color)
+    if color == "black"
+      turns.select { |t| t.turn_number.odd? }
+           .sum(&:score)
     else
-      return white_player
+      turns.select { |t| t.turn_number.even? }
+           .sum(&:score)
     end
   end
 
   def currently_waiting
-    return white_player if currently_playing == black_player
+    return black_player if next_turn.even?
 
-    return black_player
+    return white_player
   end
 
   def color_of(player)
@@ -99,8 +105,8 @@ class Game < ApplicationRecord
     # s'il y a ko, on envoie un message d'erreur
 
     # on créé un nouveau turn si on n'est pqs entrqin de rejouer la partie pour recréer le goban
-    return unless turn_number > turns.last.turn_number
+    return unless turns.empty? || turn_number > turns.last.turn_number
 
-    Turn.create(column: column, row: row, game: self, turn_number: turns.count + 1, score: captured_stones.count)
+    Turn.create(column: column, row: row, game: self, turn_number: turn_number, score: captured_stones.count)
   end
 end

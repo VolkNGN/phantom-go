@@ -6,6 +6,9 @@ class GamesController < ApplicationController
   def show
     @goban = @game.goban
     @color = @game.color_of(current_player)
+    opponent_color = @color == "black" ? "white" : "black"
+    @current_captured_stones = @game.score_for(@color)
+    @opponent_captured_stones = @game.score_for(opponent_color)
 
     if current_player == @currently_playing
       @message = "A vous de jouer"
@@ -22,6 +25,7 @@ class GamesController < ApplicationController
 
     stream_message_to_opponent("A vous de jouer")
     stream_goban_to_opponent
+    stream_scores_to_opponent
 
     head :ok
   rescue Game::CoupImpossible, Game::SuicideErreur
@@ -94,6 +98,21 @@ class GamesController < ApplicationController
         "goban",
         partial: "games/goban",
         locals: { game: @game, goban: @game.goban, color: color }
+      )
+    )
+  end
+
+  def stream_scores_to_opponent
+    channel_adress = "#{@game.to_gid_param}:#{@currently_waiting.to_gid_param}"
+
+    color = @game.color_of(@currently_playing)
+
+    GameChannel.broadcast_to(
+      channel_adress,
+      html: turbo_stream.update(
+        "captures-container",
+        partial: "games/captured_score",
+        locals: { captured_stones: @game.reload.score_for(color) }
       )
     )
   end
