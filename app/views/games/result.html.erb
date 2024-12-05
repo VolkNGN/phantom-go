@@ -1,0 +1,27 @@
+<div
+  id="game"
+  data-controller="game"
+  data-game-gameid-value="<%=@game.id%>"
+  data-game-playerid-value="<%=current_player.id%>"
+
+<div class="game-show-container">
+  <!-- Header -->
+  <%= render "games/result_header" %>
+
+  <!-- Opponent -->
+  <%= render "games/result_opponent" %>
+
+  <!-- Goban (plateau de jeu) -->
+  <%= render "games/result_goban" %>
+
+  <!-- Current Player -->
+  <%= render "games/result_current_player" %>
+
+  <!-- referee -->
+  <%= render "games/result_referee" %>
+
+  <!-- button game -->
+  <%= render "games/result_button_end" %>
+
+</div>
+</div>

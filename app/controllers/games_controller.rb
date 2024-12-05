@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_player! # S'assurer que le joueur est connecté
-  before_action :set_game, only: %i[show edit update destroy play pass give_up]
+  before_action :set_game, only: %i[show edit update destroy play pass give_up result]
   before_action :set_last_turn, only: %i[show play]
   before_action :set_channel, only: %i[play pass]
 
@@ -117,6 +117,9 @@ class GamesController < ApplicationController
   def give_up
     @game.update(winner_id: @currently_waiting.id, status: "finished")
     redirect_to game_path(@game), notice: "#{@currently_waiting} a remporté la partie !"
+  end
+
+  def result
   end
 
   private
