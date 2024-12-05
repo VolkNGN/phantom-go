@@ -110,8 +110,8 @@ class GamesController < ApplicationController
     # puts "-------------------------"
     # puts "pass"
     # Il faut regarder si le tour d'avant est un pass alors c'est game over
-    @game.turns.create(turn_number: @game.turns.count + 1)
-    redirect_to game_path(@game)
+    # @game.turns.create(turn_number: @game.turns.count + 1)
+    redirect_to game_result_path(@game)
   end
 
   def give_up
