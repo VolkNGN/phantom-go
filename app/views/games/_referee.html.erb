@@ -1,8 +1,10 @@
-<div class="referee-container">
-  <div id="referee-message-container">
+
+<div class="referee-container mt-3 row align-items-center justify-content-between">
+  <div class="referee-message-container col-8 d-flex align-items-center">
     <%= render "referee_disclaimer", message: message%>
   </div>
-  <div class="referee-mascotte">
-    <%= image_tag "mascotte.svg", alt: "Mascotte" %>
+
+  <div class="referee-mascotte col-3 d-flex justify-content-center align-items-center">
+    <%= image_tag "mascotte.svg", alt: "Mascotte", class: "img-fluid" %>
   </div>
 </div>
