@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_player! # S'assurer que le joueur est connecté
-  before_action :set_game, only: %i[show play pass give_up]
+  before_action :set_game, only: %i[show play pass give_up result]
 
   # Méthode show affiche la couleur du current_player
   def show

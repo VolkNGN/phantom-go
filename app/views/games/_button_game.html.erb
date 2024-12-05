@@ -8,6 +8,6 @@
       En attente
     </div>
   <% else %>
-    <%= link_to "Passer", "#{@game.id}/pass", class: "btn btn-primary btn-pass d-flex justify-content-between align-items-center", data: { turbo_method: :patch } %>
+    <%= link_to "Passer", game_result_path(@game), class: "btn btn-primary btn-pass d-flex justify-content-between align-items-center" %>
   <% end %>
 </div>
