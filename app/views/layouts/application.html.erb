@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><%= PhantomGo2 %></title>
-    <meta name="description" content="<%= "fav app: Phantom Go" %>">
+    <meta name="description" content="<%= meta_description %>">
 
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
@@ -30,10 +30,10 @@
 
     <%= yield :head %>
 
-    <link rel="manifest" href="<%= /assets_path 'manifest.json' %>">
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/images/favicon.png" type="image/png">
-    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <link rel="icon" href=" "<%= image_path ("favicon.ico") %>" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
