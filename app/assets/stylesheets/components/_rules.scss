@@ -6,10 +6,11 @@
                      "image3 text3"
                      "text4 image4"
                      "outro outro";
-  grid-template-columns: 140px 140px;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: min-content 195px 195px 195px 195px min-content;
   row-gap: 16px;
   column-gap: 16px;
+  padding-inline: 20px;
 
   .explanation {
     color: var(--color-100, #ffffff);
