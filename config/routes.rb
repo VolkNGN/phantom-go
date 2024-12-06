@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   patch "games/:id/play", to: "games#play"
   patch "games/:id/pass", to: "games#pass"
   patch "games/:id/give_up", to: "games#give_up"
+  get "games/:id/result", to: "games#result", as: :game_result
 
   root to: "pages#home"
 

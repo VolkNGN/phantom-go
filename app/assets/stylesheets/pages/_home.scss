@@ -1,6 +1,5 @@
 // Importer les fichiers SCSS des composants
 @import '../components/buttons';
-@import '../components/referee';
 @import '../components/bulle';
 @import '../components/rules';
 @import '../components/profile';
@@ -8,6 +7,7 @@
 
 /* Styles globaux */
 body {
+  height: 100vh;
   color: #FFF;
   font-family: "Aoboshi One";
   font-size: 16px;

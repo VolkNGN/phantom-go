@@ -16,8 +16,7 @@
   border-radius: 50%;
 
   &:hover {
-    background-color: white;
-    opacity: 0.4;
+    border: 5px solid #2de6fa;
     cursor: pointer;
   }
 }

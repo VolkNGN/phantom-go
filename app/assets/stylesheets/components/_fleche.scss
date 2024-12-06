@@ -1,8 +1,9 @@
-.ffleche {
-  width: 23px;
-  height: 10px;
-  position: absolute;
-  left: 50%;
-  top: 896px;
-  overflow: visible;
+.fleche {
+  grid-area: fleche;
+  align-self: end;
+  justify-self: center;
+
+  &.hidden {
+    display: none;
+  }
 }

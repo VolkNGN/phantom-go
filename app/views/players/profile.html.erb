@@ -1,7 +1,14 @@
+<div>
 <% if @player %>
-  <h1>Welcome, <%= @player.username %>!</h1>
-  <p><strong>Full Name:</strong> <%= @player.first_name %> <%= @player.last_name %></p>
-  <p><strong>Email:</strong> <%= @player.email %></p>
+  <h1>Bienvenue <%= @player.username %> !</h1>
+<%= link_to "Retour", root_path %>
+   <!-- Header <div>
+  <br/>
+  <p class="text-center"><strong>Full Name:</strong> <%= @player.first_name %> <%= @player.last_name %></p>
+  <br/>
+  <p class="text-center"><strong>Email:</strong> <%= @player.email %></p>
+  </div> -->
 <% else %>
   <p>No player information available.</p>
 <% end %>
+</div>
