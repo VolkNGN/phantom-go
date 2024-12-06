@@ -9,11 +9,15 @@ class GamesController < ApplicationController
     opponent_color = @color == "black" ? "white" : "black"
     @current_captured_stones = @game.score_for(@color)
     @opponent_captured_stones = @game.score_for(opponent_color)
+    @current_timer = @game.timer_for(@color)
+    @opponent_timer = @game.timer_for(opponent_color)
 
     if current_player == @currently_playing
       @message = "A vous de jouer"
+      @playing = true
     else
       @message = "C'est à votre adversaire de jouer"
+      @playing = false
     end
   end
 
