@@ -1,6 +1,7 @@
 {
   "description": "Phantom Go est la plateforme pour les passionnés de Go. Défiez vos amis, et améliorez vos compétences.",
-  "display": "fullscreen",
+  "display_override": ["fullscreen", "minimal-ui"],
+  "display": "standalone",
   "name": "Phantom Go",
   "icons": [
     <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
