@@ -1,64 +1,55 @@
-body {
+.rules {
+  display: grid;
+  grid-template-areas: "intro intro"
+                     "image1 text1"
+                     "text2 image2"
+                     "image3 text3"
+                     "text4 image4"
+                     "outro outro";
+  grid-template-columns: 180px 180px;
+  grid-template-rows: min-content 195px 195px 195px 195px min-content;
+  row-gap: 32px;
+  column-gap: 24px;
 
+  .explanation {
+    color: var(--color-100, #ffffff);
+    text-align: left;
+    font-family: "AoboshiOne-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5; /* Ajout de la propriété line-height */
+  }
 
-  .rules {
-    .regle1, .regle2, .regle3, .regle4 {
-      color: var(--color-100, #ffffff);
-      text-align: left;
-      font-family: "AoboshiOne-Regular", sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      position: absolute;
-      width: 178px;
-      height: 194px;
-      line-height: 1.5; /* Ajout de la propriété line-height */
-    }
+  .text1 {
+    grid-area: text1;
+  }
 
-    .regle1 {
-      left: 217px;
-      top: 959px;
-    }
+  .text2 {
+    grid-area: text2;
+  }
 
-    .regle2 {
-      left: 17px;
-      top: 1190px;
-    }
+  .text3 {
+    grid-area: text3;
+  }
 
-    .regle3 {
-      left: 217px;
-      top: 1420px;
-    }
+  .text4 {
+    grid-area: text4;
+  }
 
-    .regle4 {
-      left: 17px;
-      top: 1651px;
-    }
+  .illustration-rule-1 {
+    grid-area: image1;
+    justify-self: end;
+  }
 
-    .illustration-rule-1, .illustration-rule-2, .illustration-rule-3, .illustration-rule-4 {
-      width: 179px;
-      height: 194px;
-      position: absolute;
-      overflow: auto;
-    }
+  .illustration-rule-2 {
+    grid-area: image2;
+  }
 
-    .illustration-rule-1 {
-      left: 16px;
-      top: 959px;
-    }
+  .illustration-rule-3 {
+    grid-area: image3;
+  }
 
-    .illustration-rule-2 {
-      left: 217px;
-      top: 1189px;
-    }
-
-    .illustration-rule-3 {
-      left: 16px;
-      top: 1420px;
-    }
-
-    .illustration-rule-4 {
-      left: 217px;
-      top: 1625px;
-    }
+  .illustration-rule-4 {
+    grid-area: image4;
   }
 }

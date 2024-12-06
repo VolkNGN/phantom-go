@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   get "games/new"
   devise_for :players
 
-  get "/test", to: "pages#test"
-
   # Routes pour les profils de joueurs
   resources :players, only: [:show]
 

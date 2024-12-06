@@ -1,39 +1,34 @@
 <div class="rules">
-  <div class="regle1">
-    Ici, le jeu se joue sur un plateau de 6x6 intersections.
-    <br />
-    <br />
-    Un joueur utilise des pierres noires, l'autre des pierres blanches. Noir commence toujours !
-    <br />
-    <br />
-    Les joueurs placent une pierre à tour de rôle sur les intersections vides du plateau.
+  <%= render "components/intro_bulle" %>
+
+  <div class="explanation text1">
+    <p>Ici, le jeu se joue sur un plateau de 6x6 intersections.</p>
+    <p>Un joueur utilise des pierres noires, l'autre des pierres blanches. Noir commence toujours !</p>
+    <p>Les joueurs placent une pierre à tour de rôle sur les intersections vides du plateau.</p>
   </div>
 
   <img class="illustration-rule-1" src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733231660/Component_6_pxmufa.svg" alt="Illustration règle 1" />
 
-  <div class="regle2">
-    Une pierre ou un groupe de pierres a des "libertés", c'est-à-dire des intersections vides adjacentes.
-    <br />
-    <br />
-    Si toutes les libertés sont occupées par l'adversaire, les pierres sont capturées et retirées du plateau !
+  <div class="explanation text2">
+    <p>Une pierre ou un groupe de pierres a des "libertés", c'est-à-dire des intersections vides adjacentes.</p>
+    <p>Si toutes les libertés sont occupées par l'adversaire, les pierres sont capturées et retirées du plateau !</p>
   </div>
 
   <img class="illustration-rule-2" src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733235105/Component_7_deb0s8.svg" alt="Illustration règle 2" />
 
-  <div class="regle3">
-    La partie se termine lorsque les deux joueurs passent leur tour consécutivement.
-    <br />
-    <br />
-    Chaque joueur compte les intersections vides qu'il contrôle et les pierres capturées. Le joueur avec le plus de points (territoire + captures) gagne.
+  <div class="explanation text3">
+    <p>La partie se termine lorsque les deux joueurs passent leur tour consécutivement.</p>
+    <p>Chaque joueur compte les intersections vides qu'il contrôle et les pierres capturées. Le joueur avec le plus de points (territoire + captures) gagne.</p>
   </div>
 
   <img class="illustration-rule-3" src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733235122/Component_8_emad4d.svg" alt="Illustration règle 3" />
 
-  <div class="regle4">
-    Au go fantôme, comme dans une bataille navale, les pierres de l'adversaire sont invisibles sur le plateau.
-    <br />
-     Cela signifie que chaque joueur ne connaît que ses propres coups et doit déduire l'emplacement des pierres adverses !
+  <div class="explanation text4">
+    <p>Au go fantôme, comme dans une bataille navale, les pierres de l'adversaire sont invisibles sur le plateau.</p>
+     <p>Cela signifie que chaque joueur ne connaît que ses propres coups et doit déduire l'emplacement des pierres adverses !</p>
   </div>
 
   <img class="illustration-rule-4" src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1733235294/Component_5_jeh3gi.svg" alt="Illustration règle 4" />
+
+  <%= render "components/outro_bulle" %>
 </div>
