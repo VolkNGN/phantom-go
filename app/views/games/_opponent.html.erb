@@ -5,7 +5,13 @@
   <div class="col-12 mt-3 d-flex justify-content-between align-items-center">
     <!-- Timer à gauche -->
     <div class="timer-container">
-      <p class="timer" id="opponent-timer">03:00</p>
+      <p class="timer"
+         id="opponent-timer"
+         data-controller="timer"
+         data-timer-minutes-value="<%= opponent_timer[:minutes] %>"
+         data-timer-seconds-value="<%= opponent_timer[:seconds] %>"
+         data-timer-is-playing-value="<%= !playing %>"
+      ><%= opponent_timer[:string] %></p>
     </div>
 
     <div class="opponent-info d-flex align-items-center">

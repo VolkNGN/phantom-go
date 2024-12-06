@@ -16,14 +16,29 @@ class Game < ApplicationRecord
     return white_player
   end
 
-  def score_for(color)
+  def turns_for(color)
     if color == "black"
       turns.select { |t| t.turn_number.odd? }
-           .sum(&:score)
     else
       turns.select { |t| t.turn_number.even? }
-           .sum(&:score)
     end
+  end
+
+  def score_for(color)
+    turns_for(color).sum(&:score)
+  end
+
+  def timer_for(color)
+    # 5 minutes' games
+    raw_seconds = 300 - turns_for(color).sum(&:duration)
+    minutes = raw_seconds / 60
+    seconds = raw_seconds % 60
+
+    {
+      minutes: minutes,
+      seconds: seconds,
+      string: format("%02d:%02d", minutes, seconds)
+    }
   end
 
   def currently_waiting
@@ -56,7 +71,7 @@ class Game < ApplicationRecord
     # je prends leur groupe
     opponent_neighbours.each do |s|
       group = goban.group(s)
-      next unless goban.liberty_count(group) == 0
+      next unless goban.liberty_count(group).zero?
 
       group.each do |stone|
         stones_to_remove << stone

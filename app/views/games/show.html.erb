@@ -9,13 +9,13 @@
     <%= render "games/header" %>
 
     <!-- Opponent -->
-    <%= render "games/opponent", opponent_captured_stones: @opponent_captured_stones %>
+    <%= render "games/opponent", playing: @playing, opponent_captured_stones: @opponent_captured_stones, opponent_timer: @opponent_timer %>
 
     <!-- Goban (plateau de jeu) -->
     <%= render "games/goban", game: @game, goban: @goban, color: @color %>
 
     <!-- Current Player -->
-    <%= render "games/current_player", current_captured_stones: @current_captured_stones %>
+    <%= render "games/current_player", playing: @playing, current_captured_stones: @current_captured_stones, current_timer: @current_timer %>
 
     <!-- referee -->
     <%= render "games/referee", message: @message %>

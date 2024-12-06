@@ -13,7 +13,13 @@
 
 
     <div class="timer-container">
-      <p class="timer" id="current-timer">02:58</p>
+      <p class="timer"
+         id="current-timer"
+         data-controller="timer"
+         data-timer-minutes-value="<%= current_timer[:minutes] %>"
+         data-timer-seconds-value="<%= current_timer[:seconds] %>"
+         data-timer-is-playing-value="<%= playing %>"
+      ><%= current_timer[:string] %></p>
     </div>
   </div>
 
