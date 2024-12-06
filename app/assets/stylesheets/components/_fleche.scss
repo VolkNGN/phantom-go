@@ -1,0 +1,9 @@
+.fleche {
+  grid-area: fleche;
+  align-self: end;
+  justify-self: center;
+
+  &.hidden {
+    display: none;
+  }
+}

@@ -1,0 +1,71 @@
+.bulle-phantom-container-1 {
+  grid-area: intro;
+  justify-self: center;
+
+  display: grid;
+  grid-template-areas: "container";
+  width: 265px;
+  height: 70px;
+
+  .bulle-phantom-1 {
+    grid-area: container;
+    justify-self: end;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 33px;
+    width: 90%;
+    height: 70%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .phantom-help-1 {
+    color: var(--secondary-color, #331581);
+    text-align: center;
+    font-family: "AoboshiOne-Regular", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    width: 90%;
+  }
+}
+
+.bulle-phantom-container {
+  grid-area: outro;
+  justify-self: center;
+
+  display: grid;
+  grid-template-areas: "container";
+  width: 100%;
+  height: 130px;
+
+  .bulle-phantom {
+    grid-area: container;
+    justify-self: end;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 100px;
+    width: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .phantom-help-2 {
+    color: var(--color-900, #000000);
+    text-align: center;
+    font-family: "AoboshiOne-Regular", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    width: 90%;
+  }
+}
+
+.bulle-phantom-container, .bulle-phantom-container-1 {
+  .referee-mascotte {
+    grid-area: container;
+    align-self: end;
+    width: 43px;
+    transform: translate(-0.34px, 0px);
+  }
+}

@@ -1,43 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=412, initial-scale=1.0">
-  <title>Phantom Go</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
-</head>
-<body>
-  <div class="container">
-    <header class="header">
-      <div class="profile-icon">
-        <% if player_signed_in? %>
-          <%= link_to profile_path, class: "profile-button" do %>
-            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
-          <% end %>
-        <% else %>
-          <%= link_to new_player_session_path, class: "profile-button" do %>
-            <i class="fa-regular fa-user" style="color: #ffffff;"></i>
-          <% end %>
-        <% end %>
+<div class="container-home">
+  <div class="scroll">
+    <div class="content-home">
+      <div class="welcome">
+        <div class="logo">
+          <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1732802263/Logo_white_1_pf2tt7.png" alt="Phantom Go" class="logo-image">
+        </div>
+
+        <div class="game-board">
+          <%= image_tag("board.png", class: "board-image")%>
+        </div>
+
+        <%= button_to "Jouer", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
       </div>
-    </header>
-
-    <main class="main">
-      <div class="logo">
-        <img src="https://res.cloudinary.com/dreiyfvcb/image/upload/v1732802263/Logo_white_1_pf2tt7.png" alt="Phantom Go" class="logo-image">
-      </div>
-
-      <div class="game-board">
-        <%= image_tag("board.png")%>
-      </div>
-        <%= button_to "Auto-Match", availabilities_path, data: {turbo_method: :create}, class: "auto-match-button" %>
-
-    </main>
-
-    <footer class="footer">
-      <%= link_to "Comment jouer ?", how_to_play_path, class: "how-to-play" %>
-    </footer>
+      <%= render 'components/rules' %>
+    </div>
   </div>
-</body>
-</html>
+  <%= render 'components/fleche' %>
+</div>

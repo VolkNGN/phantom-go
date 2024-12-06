@@ -91,6 +91,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_06_021821) do
     t.string "username"
     t.string "first_name"
     t.string "last_name"
+    t.string "name"
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
